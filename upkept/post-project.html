@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post a Project – Upkept</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Upkept</div>
+        <div>
+          <a href="index.html">Home</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="post-project.html">Post a Project</a>
+          <a href="apply.html">Apply</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1 class="section-heading">Post a Project</h1>
+      <p>
+        Fill out the form below to tell us about your project. We’ll get back
+        to you with up to three vetted contractors who are available to give
+        quotes.
+      </p>
+      <form action="#" method="post">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="jane@example.com"
+          required
+        />
+
+        <label for="location">Location (City/Neighbourhood)</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          placeholder="Kelowna, BC"
+          required
+        />
+
+        <label for="scope">Project description</label>
+        <textarea
+          id="scope"
+          name="scope"
+          placeholder="Briefly describe the work to be done..."
+          required
+        ></textarea>
+
+        <label for="budget">Approximate budget (CAD)</label>
+        <input
+          type="text"
+          id="budget"
+          name="budget"
+          placeholder="$5,000 – $10,000"
+        />
+
+        <label for="timeline">Desired timeline</label>
+        <input
+          type="text"
+          id="timeline"
+          name="timeline"
+          placeholder="e.g. within 2 months"
+        />
+
+        <label for="dates">Preferred date windows for site visit (pick 3)</label>
+        <input
+          type="text"
+          id="dates"
+          name="dates"
+          placeholder="e.g. 2025-11-15 AM, 2025-11-17 PM, 2025-11-20 anytime"
+        />
+
+        <button type="submit">Submit Project</button>
+      </form>
+    </main>
+    <footer>
+      &copy; 2025 Upkept. All rights reserved.
+    </footer>
+  </body>
+</html>
