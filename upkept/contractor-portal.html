@@ -70,6 +70,10 @@
               <h3>Step 1 — Profile Setup</h3>
               <label for="company-name">Company Name</label>
               <input id="company-name" name="companyName" type="text" placeholder="Acme Contracting Inc." required />
+            <form class="card" action="contractor-application-success.html" method="get">
+              <h3>Step 1 — Profile Setup</h3>
+              <label for="company-name">Company Name</label>
+              <input id="company-name" name="company-name" type="text" placeholder="Acme Contracting Inc." required />
 
               <label for="trades">Trades Offered</label>
               <select id="trades" name="trades" multiple size="4">
@@ -104,6 +108,7 @@
 
               <label for="years">Years in Business</label>
               <input id="years" name="yearsInBusiness" type="number" min="0" placeholder="12" />
+              <input id="years" name="years" type="number" min="0" placeholder="12" />
 
               <button class="btn" type="submit">Submit Application</button>
             </form>
@@ -183,6 +188,72 @@
             <p>Archive completed work, export invoices, and showcase reviews.</p>
             <p class="role-alert" data-role-locked hidden>Completed projects will be saved to your archive.</p>
             <ul class="list-clean" data-contractor-completed></ul>
+            <div class="dashboard-card">
+              <h3>1. Available Projects</h3>
+              <p>Filter open opportunities by province, city, and trade.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Kelowna • Roofing repair</span>
+                  <a class="btn-secondary" href="project-overview.html">View Project Details</a>
+                </li>
+                <li>
+                  <span>Calgary • Commercial tenant fit-out</span>
+                  <a class="btn-secondary" href="project-overview.html">View Project Details</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card">
+              <h3>2. Quote Requests</h3>
+              <p>Receive AI and admin matched projects ready for pricing.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Kitchen renovation — submitted yesterday</span>
+                  <div>
+                    <a class="btn" href="quote-submit.html">Submit Quote</a>
+                    <a class="btn-secondary" href="site-visit.html">Schedule Site Visit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid-two" style="margin-top: 2rem;">
+            <div class="dashboard-card" id="active-quotes">
+              <h3>3. Active Quotes</h3>
+              <p>Track each quote until the client approves or declines.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Langley bathroom remodel</span>
+                  <span class="status-pill">Pending</span>
+                </li>
+                <li>
+                  <span>Cochrane deck build</span>
+                  <span class="status-pill">Approved</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card" id="active-projects">
+              <h3>4. Active Projects</h3>
+              <p>See payment milestones, messaging, and schedule in one view.</p>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <span>Milestone: Foundation Pour</span>
+                    <div class="tag">Escrow Funded</div>
+                  </div>
+                  <a class="btn" href="project-timeline.html">View Project Timeline</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="dashboard-card" style="margin-top: 2rem;">
+            <h3>5. Finished Projects</h3>
+            <p>Archive completed work, export invoices, and showcase reviews.</p>
+            <ul class="list-clean">
+              <li>
+                <span>Edmonton exterior upgrade — Rated 4.9/5</span>
+                <a class="btn-secondary" href="project-archive.html">View Completed Project</a>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

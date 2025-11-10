@@ -76,6 +76,35 @@
             <p class="muted">Need to update your contact details? Visit the authentication portal to manage your account.</p>
             <a class="btn-secondary" href="login.html">Open Account Settings</a>
           </div>
+          <form class="card" action="client-profile-saved.html" method="get">
+            <div class="grid-two">
+              <div>
+                <label for="full-name">Full Name</label>
+                <input id="full-name" name="full-name" type="text" placeholder="Jordan Lee" required />
+              </div>
+              <div>
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="jordan@example.ca" required />
+              </div>
+            </div>
+            <div class="grid-two">
+              <div>
+                <label for="province">Province</label>
+                <input id="province" name="province" type="text" placeholder="Alberta" />
+              </div>
+              <div>
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" placeholder="Calgary" />
+              </div>
+            </div>
+            <label for="role">Role</label>
+            <select id="role" name="role">
+              <option>Homeowner</option>
+              <option>Property Manager</option>
+              <option>Other</option>
+            </select>
+            <button class="btn" type="submit">Save Profile</button>
+          </form>
         </div>
       </section>
 
@@ -127,12 +156,53 @@
               </div>
               <label for="scope">Project Description</label>
               <textarea id="scope" name="scope" placeholder="Share goals, existing conditions, and must-haves." required></textarea>
+            <form class="card" action="project-submitted.html" method="get">
+              <label for="project-title">Project Title</label>
+              <input id="project-title" name="project-title" type="text" placeholder="Kitchen renovation" />
+
+              <label for="project-type">Trade Type</label>
+              <select id="project-type" name="project-type">
+                <option>General Contracting</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Landscaping</option>
+                <option>Commercial Build</option>
+              </select>
+
+              <label for="budget">Estimated Budget</label>
+              <input id="budget" name="budget" type="text" placeholder="$25,000" />
+
+              <label for="timeline">Preferred Timeline</label>
+              <input id="timeline" name="timeline" type="text" placeholder="May 2025" />
+
+              <label for="details">Project Description</label>
+              <textarea id="details" name="details" placeholder="Share goals, existing conditions, and must-haves."></textarea>
+
+              <label for="photos">Upload Photos</label>
+              <input id="photos" name="photos" type="file" multiple />
+
               <button class="btn" type="submit">Submit Project</button>
             </form>
             <div class="card" id="recommended-contractors">
               <h3>2. Recommended Contractors</h3>
               <p>UpKept’s smart matching engine delivers personalized contractor suggestions based on your project data.</p>
               <ul class="list-clean" data-client-recommendations></ul>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <strong>North Shore Builders</strong>
+                    <div class="tag">Verified • Vancouver</div>
+                  </div>
+                  <a class="btn-secondary" href="contractor-profile.html">View Profile</a>
+                </li>
+                <li>
+                  <div>
+                    <strong>Prairie Electric</strong>
+                    <div class="tag">Verified • Calgary</div>
+                  </div>
+                  <a class="btn-secondary" href="contractor-profile.html">View Profile</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -160,6 +230,15 @@
               <h3>4. Project Quotes</h3>
               <p>Compare quotes side by side with transparent scopes and timelines.</p>
               <ul class="list-clean" data-client-quotes></ul>
+              <ul class="list-clean">
+                <li>
+                  <span>Roof replacement — $12,400</span>
+                  <div>
+                    <a class="btn" href="quote-accept.html">Accept Quote</a>
+                    <a class="btn-secondary" href="quote-decline.html">Decline</a>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -172,11 +251,26 @@
               <h3>5. Active Projects</h3>
               <p>Track progress with milestone-based escrow releases and messaging threads.</p>
               <ul class="list-clean" data-client-active></ul>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <span>Basement suite conversion</span>
+                    <div class="tag">Milestone 2 of 4</div>
+                  </div>
+                  <a class="btn" href="project-tracker.html">View Active Project</a>
+                </li>
+              </ul>
             </div>
             <div class="dashboard-card" id="finished-projects">
               <h3>6. Finished Projects</h3>
               <p>Review contractors, download invoices, and store documentation safely.</p>
               <ul class="list-clean" data-client-completed></ul>
+              <ul class="list-clean">
+                <li>
+                  <span>Edmonton siding upgrade</span>
+                  <a class="btn-secondary" href="review-contractor.html">Review Contractor</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
