@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Portal | UpKept</title>
+    <meta
+      name="description"
+      content="Create your UpKept client profile, submit renovation projects, compare contractor quotes, and track escrow milestones with 24/7 support."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="top-nav">
+        <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" role="menubar">
+          <a href="index.html#mission" role="menuitem">Who We Are</a>
+          <a href="index.html#how" role="menuitem">How It Works</a>
+          <a href="index.html#benefits" role="menuitem">Why UpKept</a>
+          <a href="client-portal.html" role="menuitem" aria-current="page">Client Portal</a>
+          <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+          <a href="admin-dashboard.html" role="menuitem">Admin</a>
+          <a class="btn-outline" href="#contact" role="menuitem">Chat with Kee</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>Welcome to your secure project hub.</h1>
+          <p>
+            Set up your profile, share project goals, receive verified contractor matches, and manage every milestone through UpKept’s escrow-protected platform.
+          </p>
+          <div class="section-cta">
+            <a class="btn" href="#submit-project">Submit a Project</a>
+            <a class="btn-secondary" href="#recommended-contractors">View Contractor Profiles</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="profile-setup">
+        <div class="container">
+          <header class="section-header">
+            <h2>Step 1 — Client Profile Setup</h2>
+            <p>Tell us who you are so we can tailor recommendations and support.</p>
+          </header>
+          <form class="card" action="#" method="post">
+            <div class="grid-two">
+              <div>
+                <label for="full-name">Full Name</label>
+                <input id="full-name" name="full-name" type="text" placeholder="Jordan Lee" required />
+              </div>
+              <div>
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="jordan@example.ca" required />
+              </div>
+            </div>
+            <div class="grid-two">
+              <div>
+                <label for="province">Province</label>
+                <input id="province" name="province" type="text" placeholder="Alberta" />
+              </div>
+              <div>
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" placeholder="Calgary" />
+              </div>
+            </div>
+            <label for="role">Role</label>
+            <select id="role" name="role">
+              <option>Homeowner</option>
+              <option>Property Manager</option>
+              <option>Other</option>
+            </select>
+            <button class="btn" type="submit">Save Profile</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section muted" id="submit-project">
+        <div class="container">
+          <header class="section-header">
+            <h2>1. Submit a Project</h2>
+            <p>Upload photos, outline scope, and choose the trades you need.</p>
+          </header>
+          <div class="grid-two">
+            <form class="card" action="#" method="post">
+              <label for="project-title">Project Title</label>
+              <input id="project-title" name="project-title" type="text" placeholder="Kitchen renovation" />
+
+              <label for="project-type">Trade Type</label>
+              <select id="project-type" name="project-type">
+                <option>General Contracting</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Landscaping</option>
+                <option>Commercial Build</option>
+              </select>
+
+              <label for="budget">Estimated Budget</label>
+              <input id="budget" name="budget" type="text" placeholder="$25,000" />
+
+              <label for="timeline">Preferred Timeline</label>
+              <input id="timeline" name="timeline" type="text" placeholder="May 2025" />
+
+              <label for="details">Project Description</label>
+              <textarea id="details" name="details" placeholder="Share goals, existing conditions, and must-haves."></textarea>
+
+              <label for="photos">Upload Photos</label>
+              <input id="photos" name="photos" type="file" multiple />
+
+              <button class="btn" type="submit">Submit Project</button>
+            </form>
+            <div class="card" id="recommended-contractors">
+              <h3>2. Recommended Contractors</h3>
+              <p>UpKept’s smart matching engine delivers personalized contractor suggestions based on your project data.</p>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <strong>North Shore Builders</strong>
+                    <div class="tag">Verified • Vancouver</div>
+                  </div>
+                  <a class="btn-secondary" href="#">View Profile</a>
+                </li>
+                <li>
+                  <div>
+                    <strong>Prairie Electric</strong>
+                    <div class="tag">Verified • Calgary</div>
+                  </div>
+                  <a class="btn-secondary" href="#">View Profile</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact-contractors">
+        <div class="container">
+          <div class="grid-two">
+            <div class="dashboard-card">
+              <h3>3. Contractor Contact Point</h3>
+              <p>Schedule meetings or site visits directly with matched contractors.</p>
+              <a class="btn" href="#">Book a Quote</a>
+            </div>
+            <div class="dashboard-card" id="project-quotes">
+              <h3>4. Project Quotes</h3>
+              <p>Compare quotes side by side with transparent scopes and timelines.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Roof replacement — $12,400</span>
+                  <div>
+                    <a class="btn" href="#">Accept Quote</a>
+                    <a class="btn-secondary" href="#">Decline</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="active-projects">
+        <div class="container">
+          <div class="grid-two">
+            <div class="dashboard-card">
+              <h3>5. Active Projects</h3>
+              <p>Track progress with milestone-based escrow releases and messaging threads.</p>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <span>Basement suite conversion</span>
+                    <div class="tag">Milestone 2 of 4</div>
+                  </div>
+                  <a class="btn" href="#">View Active Project</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card" id="finished-projects">
+              <h3>6. Finished Projects</h3>
+              <p>Review contractors, download invoices, and store documentation safely.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Edmonton siding upgrade</span>
+                  <a class="btn-secondary" href="#">Review Contractor</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kee">
+        <div class="container">
+          <div class="dashboard-card">
+            <h3>Need assistance?</h3>
+            <p>Kee can walk you through escrow payments, verify contractor credentials, and connect you with live support instantly.</p>
+            <a class="btn" href="#">Chat with Kee</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#mission">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
+    </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="#submit-project">Submit a Project</li>
+          <li data-link="#project-quotes">Track My Project</li>
+          <li data-link="#contact-contractors">Book a Quote</li>
+          <li data-link="contractor-portal.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Need help funding a milestone? Ask Kee for escrow instructions anytime.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="#">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for project guidance" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
