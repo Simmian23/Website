@@ -26,13 +26,13 @@
           <span></span>
         </button>
         <div class="nav-links" role="menubar">
-          <a href="index.html#mission" role="menuitem">Who We Are</a>
-          <a href="index.html#how" role="menuitem">How It Works</a>
-          <a href="index.html#benefits" role="menuitem">Why UpKept</a>
+          <a href="about.html" role="menuitem">Who We Are</a>
+          <a href="how-it-works.html" role="menuitem">How It Works</a>
+          <a href="benefits.html" role="menuitem">Why UpKept</a>
           <a href="client-portal.html" role="menuitem" aria-current="page">Client Portal</a>
           <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
           <a href="admin-dashboard.html" role="menuitem">Admin</a>
-          <a class="btn-outline" href="#contact" role="menuitem">Chat with Kee</a>
+          <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
         </div>
       </nav>
     </header>
@@ -45,8 +45,8 @@
             Set up your profile, share project goals, receive verified contractor matches, and manage every milestone through UpKept’s escrow-protected platform.
           </p>
           <div class="section-cta">
-            <a class="btn" href="#submit-project">Submit a Project</a>
-            <a class="btn-secondary" href="#recommended-contractors">View Contractor Profiles</a>
+            <a class="btn" href="submit-project.html">Submit a Project</a>
+            <a class="btn-secondary" href="contractor-directory.html">View Contractor Profiles</a>
           </div>
         </div>
       </section>
@@ -57,7 +57,7 @@
             <h2>Step 1 — Client Profile Setup</h2>
             <p>Tell us who you are so we can tailor recommendations and support.</p>
           </header>
-          <form class="card" action="#" method="post">
+          <form class="card" action="client-profile-saved.html" method="get">
             <div class="grid-two">
               <div>
                 <label for="full-name">Full Name</label>
@@ -96,7 +96,7 @@
             <p>Upload photos, outline scope, and choose the trades you need.</p>
           </header>
           <div class="grid-two">
-            <form class="card" action="#" method="post">
+            <form class="card" action="project-submitted.html" method="get">
               <label for="project-title">Project Title</label>
               <input id="project-title" name="project-title" type="text" placeholder="Kitchen renovation" />
 
@@ -132,14 +132,14 @@
                     <strong>North Shore Builders</strong>
                     <div class="tag">Verified • Vancouver</div>
                   </div>
-                  <a class="btn-secondary" href="#">View Profile</a>
+                  <a class="btn-secondary" href="contractor-profile.html">View Profile</a>
                 </li>
                 <li>
                   <div>
                     <strong>Prairie Electric</strong>
                     <div class="tag">Verified • Calgary</div>
                   </div>
-                  <a class="btn-secondary" href="#">View Profile</a>
+                  <a class="btn-secondary" href="contractor-profile.html">View Profile</a>
                 </li>
               </ul>
             </div>
@@ -153,7 +153,7 @@
             <div class="dashboard-card">
               <h3>3. Contractor Contact Point</h3>
               <p>Schedule meetings or site visits directly with matched contractors.</p>
-              <a class="btn" href="#">Book a Quote</a>
+              <a class="btn" href="quote-scheduler.html">Book a Quote</a>
             </div>
             <div class="dashboard-card" id="project-quotes">
               <h3>4. Project Quotes</h3>
@@ -162,8 +162,8 @@
                 <li>
                   <span>Roof replacement — $12,400</span>
                   <div>
-                    <a class="btn" href="#">Accept Quote</a>
-                    <a class="btn-secondary" href="#">Decline</a>
+                    <a class="btn" href="quote-accept.html">Accept Quote</a>
+                    <a class="btn-secondary" href="quote-decline.html">Decline</a>
                   </div>
                 </li>
               </ul>
@@ -184,7 +184,7 @@
                     <span>Basement suite conversion</span>
                     <div class="tag">Milestone 2 of 4</div>
                   </div>
-                  <a class="btn" href="#">View Active Project</a>
+                  <a class="btn" href="project-tracker.html">View Active Project</a>
                 </li>
               </ul>
             </div>
@@ -194,7 +194,7 @@
               <ul class="list-clean">
                 <li>
                   <span>Edmonton siding upgrade</span>
-                  <a class="btn-secondary" href="#">Review Contractor</a>
+                  <a class="btn-secondary" href="review-contractor.html">Review Contractor</a>
                 </li>
               </ul>
             </div>
@@ -207,7 +207,7 @@
           <div class="dashboard-card">
             <h3>Need assistance?</h3>
             <p>Kee can walk you through escrow payments, verify contractor credentials, and connect you with live support instantly.</p>
-            <a class="btn" href="#">Chat with Kee</a>
+            <a class="btn" href="kee.html">Chat with Kee</a>
           </div>
         </div>
       </section>
@@ -223,7 +223,7 @@
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="index.html#mission">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="https://www.upkept.ca/careers">Careers</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
@@ -248,17 +248,17 @@
       <div class="chatbot-body">
         <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
         <ul class="chatbot-options" role="list">
-          <li data-link="#submit-project">Submit a Project</li>
-          <li data-link="#project-quotes">Track My Project</li>
-          <li data-link="#contact-contractors">Book a Quote</li>
-          <li data-link="contractor-portal.html">Apply as Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="quote-scheduler.html">Book a Quote</li>
+          <li data-link="apply.html">Apply as Contractor</li>
           <li data-link="mailto:support@upkept.ca">Talk to Support</li>
         </ul>
         <div class="chatbot-secondary">
           <p>Need help funding a milestone? Ask Kee for escrow instructions anytime.</p>
         </div>
       </div>
-      <form class="chatbot-form" action="#">
+      <form class="chatbot-form" action="kee.html">
         <label class="visually-hidden" for="chatbot-input">Message Kee</label>
         <input id="chatbot-input" type="text" placeholder="Ask Kee for project guidance" />
         <button type="submit">Send</button>
