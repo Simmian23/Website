@@ -1,87 +1,146 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How It Works – Upkept</title>
+    <title>How UpKept Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo">Upkept</div>
-        <div>
-          <a href="index.html">Home</a>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="post-project.html">Post a Project</a>
-          <a href="apply.html">Apply</a>
-          <a href="pricing.html">Pricing</a>
-        </div>
-      </nav>
-    </header>
+
+<header class="site-header">
+  <nav class="top-nav">
+    <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" role="menubar">
+      <a href="about.html" role="menuitem">Who We Are</a>
+      <a href="how-it-works.html" role="menuitem">How It Works</a>
+      <a href="benefits.html" role="menuitem">Why UpKept</a>
+      <a href="features.html" role="menuitem">Features</a>
+      <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+      <a href="client-portal.html" role="menuitem">Client Portal</a>
+      <a href="admin-dashboard.html" role="menuitem">Admin</a>
+      <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
+    </div>
+  </nav>
+</header>
+
+
     <main>
-      <h1 class="section-heading">How Upkept Works</h1>
-      <p>
-        We’ve designed Upkept to take the uncertainty and friction out of home
-        improvements. Here’s what happens when you use our service:
-      </p>
-      <section>
-        <div class="card-grid">
-          <div class="card">
-            <h3>1. Post your project</h3>
-            <p>
-              Fill out a simple form with details about the job: location,
-              scope, approximate budget and timeline. You’ll also pick three
-              preferred windows for a site visit so contractors can plan
-              accordingly.
-            </p>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>The UpKept journey in six steps</h1>
+          <p>We combine digital workflows with human oversight so every renovation, repair, or build feels seamless.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="step-cards">
+            <article class="step-card">
+              <div class="step-icon">1</div>
+              <h3>Post your project</h3>
+              <p>Share scope, budget, and timing in minutes. Upload photos and documents right from your phone.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">2</div>
+              <h3>Vetting &amp; matching</h3>
+              <p>Our team reviews your needs and invites 2–3 verified contractors best suited to the job.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">3</div>
+              <h3>Receive quotes</h3>
+              <p>Compare transparent proposals, milestone schedules, and real references in your client portal.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">4</div>
+              <h3>Fund escrow</h3>
+              <p>Secure the project with escrow-backed payments so everyone is protected from day one.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">5</div>
+              <h3>Complete milestones</h3>
+              <p>Track progress, release funds when work is approved, and stay aligned through messaging threads.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">6</div>
+              <h3>Review &amp; repeat</h3>
+              <p>Close out the project with a final inspection, leave feedback, and plan the next improvement.</p>
+            </article>
           </div>
-          <div class="card">
-            <h3>2. Vetting & matching</h3>
-            <p>
-              Our team reviews your request and selects two or three vetted
-              contractors. We check licences, insurance, references and even
-              review sample contracts so you don’t have to. Only pros who meet
-              our standards are invited to quote.
-            </p>
-          </div>
-          <div class="card">
-            <h3>3. Receive quotes</h3>
-            <p>
-              You’ll get multiple quotes with transparent pricing and a clear
-              breakdown of milestones. Compare their availability and choose
-              the contractor that best fits your project.
-            </p>
-          </div>
-          <div class="card">
-            <h3>4. Fund escrow (optional)</h3>
-            <p>
-              For extra peace of mind, you can place your project funds into
-              an escrow‑like account. Payments are released only when you
-              confirm each milestone is completed satisfactorily.
-            </p>
-          </div>
-          <div class="card">
-            <h3>5. Complete milestones</h3>
-            <p>
-              Work begins according to the agreed timeline. With each milestone
-              finished, the relevant portion of the funds is released to the
-              contractor. If issues arise, we’re here to help mediate.
-            </p>
-          </div>
-          <div class="card">
-            <h3>6. Review & repeat</h3>
-            <p>
-              After final completion, leave a review for your contractor to
-              help others make informed decisions. Return to Upkept for your
-              next project—we’ll keep improving the process.
-            </p>
+        </div>
+      </section>
+      <section class="section muted">
+        <div class="container">
+          <div class="section-cta">
+            <a class="btn" href="submit-project.html">Start a Project</a>
+            <a class="btn-secondary" href="apply.html">Join as Contractor</a>
           </div>
         </div>
       </section>
     </main>
-    <footer>
-      &copy; 2025 Upkept. All rights reserved.
+
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
     </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="client-portal.html">Find a Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="apply.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Select an option to jump into the right workspace or type a question below.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html" aria-label="Send a message to Kee">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for guidance" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
+

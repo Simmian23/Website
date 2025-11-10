@@ -1,87 +1,137 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apply as a Contractor – Upkept</title>
+    <title>Apply as a Contractor | UpKept</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo">Upkept</div>
-        <div>
-          <a href="index.html">Home</a>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="post-project.html">Post a Project</a>
-          <a href="apply.html">Apply</a>
-          <a href="pricing.html">Pricing</a>
-        </div>
-      </nav>
-    </header>
+
+<header class="site-header">
+  <nav class="top-nav">
+    <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" role="menubar">
+      <a href="about.html" role="menuitem">Who We Are</a>
+      <a href="how-it-works.html" role="menuitem">How It Works</a>
+      <a href="benefits.html" role="menuitem">Why UpKept</a>
+      <a href="features.html" role="menuitem">Features</a>
+      <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+      <a href="client-portal.html" role="menuitem">Client Portal</a>
+      <a href="admin-dashboard.html" role="menuitem">Admin</a>
+      <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
+    </div>
+  </nav>
+</header>
+
+
     <main>
-      <h1 class="section-heading">Apply to Join Upkept</h1>
-      <p>
-        Join a community of trusted professionals. We bring qualified leads
-        directly to you and help you get paid faster with milestone payments.
-        To apply, please provide the following information.
-      </p>
-      <form action="#" method="post">
-        <label for="company">Company name</label>
-        <input
-          type="text"
-          id="company"
-          name="company"
-          placeholder="Acme Renovations"
-          required
-        />
-
-        <label for="trade">Trade</label>
-        <input
-          type="text"
-          id="trade"
-          name="trade"
-          placeholder="Plumbing, Electrical, Roofing..."
-          required
-        />
-
-        <label for="experience">Years of experience</label>
-        <input
-          type="text"
-          id="experience"
-          name="experience"
-          placeholder="10"
-        />
-
-        <label for="area">Service area</label>
-        <input
-          type="text"
-          id="area"
-          name="area"
-          placeholder="Kelowna and surrounding"
-        />
-
-        <label for="summary">Tell us about your business</label>
-        <textarea
-          id="summary"
-          name="summary"
-          placeholder="Brief summary of your company, specialties and certifications..."
-        ></textarea>
-
-        <label for="email">Contact email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="info@acmerenovations.ca"
-          required
-        />
-
-        <button type="submit">Submit Application</button>
-      </form>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>Grow with verified projects</h1>
+          <p>Apply once, verify your credentials, and start receiving qualified project invitations with escrow-backed payments.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <form
+            class="card"
+            data-api-endpoint="/api/contractors/apply"
+            data-success-redirect="contractor-application-success.html"
+            data-success-message="Your application has been submitted. Our verification team will review it shortly."
+            data-requires-role="contractor"
+          >
+            <p class="role-alert" data-role-locked hidden>
+              Sign in with a contractor account to submit your application.
+            </p>
+            <p class="form-feedback" data-form-feedback hidden></p>
+            <div class="grid-two">
+              <div>
+                <label for="companyName">Company Name</label>
+                <input id="companyName" name="companyName" type="text" placeholder="Acme Renovations" required />
+              </div>
+              <div>
+                <label for="years">Years in Business</label>
+                <input id="years" name="yearsInBusiness" type="number" min="0" placeholder="10" />
+              </div>
+            </div>
+            <label for="trade">Trades Offered</label>
+            <input id="trade" name="trades" type="text" placeholder="Plumbing, Electrical, Roofing" required />
+            <label for="area">Service Area</label>
+            <input id="area" name="city" type="text" placeholder="Kelowna and surrounding" />
+            <label for="province">Province</label>
+            <input id="province" name="province" type="text" placeholder="British Columbia" />
+            <label for="summary">Company Summary</label>
+            <textarea id="summary" name="summary" placeholder="Share your specialties and certifications"></textarea>
+            <button class="btn" type="submit">Submit Application</button>
+          </form>
+        </div>
+      </section>
     </main>
-    <footer>
-      &copy; 2025 Upkept. All rights reserved.
+
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
     </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="client-portal.html">Find a Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="apply.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Select an option to jump into the right workspace or type a question below.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html" aria-label="Send a message to Kee">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for guidance" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
+

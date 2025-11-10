@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service | UpKept</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="top-nav">
+        <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" role="menubar">
+          <a href="about.html" role="menuitem">Who We Are</a>
+          <a href="how-it-works.html" role="menuitem">How It Works</a>
+          <a href="benefits.html" role="menuitem">Why UpKept</a>
+          <a href="client-portal.html" role="menuitem">Client Portal</a>
+          <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+          <a href="admin-dashboard.html" role="menuitem">Admin</a>
+          <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>Terms of Service</h1>
+          <p>Effective January 1, 2025</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container narrow">
+          <h2>1. Agreement</h2>
+          <p>
+            These Terms govern your use of UpKept’s marketplace, including contractor verification, escrow payments, messaging, and support tools.
+            By creating an account you agree to comply with these terms and our Privacy Policy.
+          </p>
+          <h2>2. Marketplace Roles</h2>
+          <ul>
+            <li>Homeowners and property managers may submit projects, review quotes, and release escrow funds.</li>
+            <li>Contractors must maintain valid licensing, insurance, and references to remain verified.</li>
+            <li>Administrators oversee verification, disputes, and platform content.</li>
+          </ul>
+          <h2>3. Payments & Escrow</h2>
+          <p>
+            UpKept uses milestone-based escrow. Clients authorize funding before work begins, and funds are released to contractors once milestones are approved.
+            Platform fees include contractor commissions and homeowner payment protection charges described on the pricing page.
+          </p>
+          <h2>4. Acceptable Use</h2>
+          <p>
+            Users agree not to post fraudulent projects, misrepresent qualifications, or circumvent the platform to avoid fees.
+            UpKept reserves the right to suspend accounts that violate these standards or applicable laws.
+          </p>
+          <h2>5. Liability</h2>
+          <p>
+            UpKept facilitates connections but is not a party to service contracts between clients and contractors. Disputes are handled through our dispute resolution process, which may include mediation and escrow holds until issues are resolved.
+          </p>
+          <h2>6. Updates</h2>
+          <p>We may update these terms periodically. Continued use of UpKept after changes are posted constitutes acceptance of the revised terms.</p>
+          <h2>7. Contact</h2>
+          <p>Questions can be directed to legal@upkept.ca.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html" aria-current="page">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
+    </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="client-portal.html">Find a Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="apply.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Select an option to jump into the right workspace or type a question below.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html" aria-label="Send a message to Kee">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for guidance" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

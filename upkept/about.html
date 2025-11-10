@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post a Project | UpKept</title>
+    <title>About UpKept | Real People, Real Protection</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -37,58 +37,39 @@
     <main>
       <section class="section-intro">
         <div class="container narrow">
-          <h1>Ready to post your project?</h1>
-          <p>Share the essentials and our concierge team will curate a short list of verified contractors within 24 hours.</p>
+          <h1>Who We Are</h1>
+          <p>UpKept exists to make home improvement safe, transparent, and human. We bring together licensed Canadian contractors, conscientious homeowners, and escrow-backed protections so every project feels confident from first call to final walkthrough.</p>
         </div>
       </section>
       <section class="section">
         <div class="container">
-          <form
-            class="card"
-            data-api-endpoint="/api/projects"
-            data-success-redirect="project-submitted.html"
-            data-success-message="Your project has been submitted for matching."
-            data-requires-role="homeowner,property_manager"
-          >
-            <p class="role-alert" data-role-locked hidden>
-              Sign in as a homeowner or property manager to submit a project.
-            </p>
-            <p class="form-feedback" data-form-feedback hidden></p>
-            <label for="title">Project Title</label>
-            <input id="title" name="title" type="text" placeholder="Kitchen renovation" required />
-            <label for="scope">Scope &amp; Goals</label>
-            <textarea id="scope" name="scope" placeholder="Tell us what you want to accomplish" required></textarea>
-            <div class="grid-two">
-              <div>
-                <label for="tradeType">Trade Type</label>
-                <input id="tradeType" name="tradeType" type="text" placeholder="General Contracting" />
-              </div>
-              <div>
-                <label for="budget">Estimated Budget</label>
-                <input id="budget" name="budget" type="text" placeholder="$40,000" />
-              </div>
-            </div>
-            <div class="grid-two">
-              <div>
-                <label for="timeline">Preferred Timeline</label>
-                <input id="timeline" name="timeline" type="text" placeholder="Spring 2025" />
-              </div>
-              <div>
-                <label for="city">City</label>
-                <input id="city" name="city" type="text" placeholder="Kelowna" />
-              </div>
-            </div>
-            <label for="province">Province</label>
-            <input id="province" name="province" type="text" placeholder="British Columbia" />
-            <button class="btn" type="submit">Submit Project</button>
-          </form>
+          <div class="grid-three">
+            <article class="card">
+              <h3>Our Promise</h3>
+              <p>Every contractor on UpKept is vetted for licensing, insurance, and references. We combine technology with real people to deliver trust at each milestone.</p>
+            </article>
+            <article class="card">
+              <h3>Our Difference</h3>
+              <p>Escrow-backed payments, transparent communication, and concierge support ensure homeowners and pros work together with total clarity.</p>
+            </article>
+            <article class="card">
+              <h3>Our Reach</h3>
+              <p>From Vancouver Island to the Maritimes, UpKept serves homeowners, property managers, and contractors across Canada with bilingual support.</p>
+            </article>
+          </div>
         </div>
       </section>
       <section class="section muted">
         <div class="container">
+          <h2>Guiding Principles</h2>
+          <ul class="list-clean">
+            <li><strong>Transparency:</strong> Project scope, budgets, and communications stay open to all parties.</li>
+            <li><strong>Protection:</strong> Escrow releases only when homeowners approve milestone completion.</li>
+            <li><strong>Community:</strong> We champion local trades and celebrate the people behind every build.</li>
+          </ul>
           <div class="section-cta">
-            <a class="btn" href="submit-project.html">Use Advanced Intake</a>
-            <a class="btn-secondary" href="contractor-directory.html">Browse Contractors</a>
+            <a class="btn" href="submit-project.html">Start Your Project</a>
+            <a class="btn-secondary" href="contractor-portal.html">Explore Contractor Tools</a>
           </div>
         </div>
       </section>
