@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contractor Portal | UpKept</title>
+    <meta
+      name="description"
+      content="Join UpKept’s verified contractor network. Submit your profile, explore vetted projects, manage quotes, and track escrow-protected payments from one dashboard."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="top-nav">
+        <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" role="menubar">
+          <a href="about.html" role="menuitem">Who We Are</a>
+          <a href="how-it-works.html" role="menuitem">How It Works</a>
+          <a href="benefits.html" role="menuitem">Why UpKept</a>
+          <a href="client-portal.html" role="menuitem">Client Portal</a>
+          <a href="contractor-portal.html" role="menuitem" aria-current="page">Contractor Portal</a>
+          <a href="admin-dashboard.html" role="menuitem">Admin</a>
+          <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>Join UpKept’s network of trusted professionals.</h1>
+          <p>
+            Grow your business through verified clients, secured payments, and real projects — not empty leads. UpKept makes onboarding effortless with guided verification and built-in marketing exposure across Canada.
+          </p>
+          <div class="section-cta">
+            <a class="btn" href="apply.html">Apply Now</a>
+            <a class="btn-secondary" href="available-projects.html">Browse Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="apply" class="section">
+        <div class="container">
+          <header class="section-header">
+            <h2>Profile Setup &amp; Verification</h2>
+            <p>Complete your profile so our verification team can review your credentials and activate your badge.</p>
+          </header>
+          <div class="grid-two">
+            <form class="card" action="contractor-application-success.html" method="get">
+              <h3>Step 1 — Profile Setup</h3>
+              <label for="company-name">Company Name</label>
+              <input id="company-name" name="company-name" type="text" placeholder="Acme Contracting Inc." required />
+
+              <label for="trades">Trades Offered</label>
+              <select id="trades" name="trades" multiple size="4">
+                <option>General Contracting</option>
+                <option>Roofing</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>HVAC</option>
+                <option>Commercial Build</option>
+              </select>
+
+              <div class="grid-two">
+                <div>
+                  <label for="province">Province</label>
+                  <input id="province" name="province" type="text" placeholder="British Columbia" />
+                </div>
+                <div>
+                  <label for="city">City</label>
+                  <input id="city" name="city" type="text" placeholder="Kelowna" />
+                </div>
+              </div>
+
+              <label for="market">Residential / Commercial</label>
+              <select id="market" name="market">
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="both">Both</option>
+              </select>
+
+              <label for="summary">Company Summary</label>
+              <textarea id="summary" name="summary" placeholder="Share your specialties, certifications, and differentiators."></textarea>
+
+              <label for="years">Years in Business</label>
+              <input id="years" name="years" type="number" min="0" placeholder="12" />
+
+              <button class="btn" type="submit">Submit Application</button>
+            </form>
+            <div class="card">
+              <h3>Step 2 — Verification Journey</h3>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <strong>License &amp; Insurance Check</strong>
+                    <p>Upload provincial licenses, general liability, and workers’ comp documentation.</p>
+                  </div>
+                  <span class="status-pill">In Review</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>Reference Validation</strong>
+                    <p>Share 3–5 recent project references — our team contacts each homeowner.</p>
+                  </div>
+                  <span class="status-pill">Pending</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>Verification Badge</strong>
+                    <p>Once approved, a green badge appears on your profile and project submissions.</p>
+                  </div>
+                  <span class="status-pill">Unlocked</span>
+                </li>
+              </ul>
+              <div class="section-cta">
+                <a class="btn-secondary" href="mailto:verification@upkept.ca">Contact Verification Team</a>
+              </div>
+            </div>
+          </div>
+          <p class="card" style="margin-top: 2rem;">
+            After submission you’ll see this confirmation: <strong>“Your application has been received! Our verification team will review your details and contact you once approved.”</strong>
+          </p>
+        </div>
+      </section>
+
+      <section id="available-projects" class="section muted">
+        <div class="container">
+          <header class="section-header">
+            <h2>Contractor Homepage</h2>
+            <p>Everything you need to manage quotes, milestones, and communication from day one.</p>
+          </header>
+          <div class="grid-two">
+            <div class="dashboard-card">
+              <h3>1. Available Projects</h3>
+              <p>Filter open opportunities by province, city, and trade.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Kelowna • Roofing repair</span>
+                  <a class="btn-secondary" href="project-overview.html">View Project Details</a>
+                </li>
+                <li>
+                  <span>Calgary • Commercial tenant fit-out</span>
+                  <a class="btn-secondary" href="project-overview.html">View Project Details</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card">
+              <h3>2. Quote Requests</h3>
+              <p>Receive AI and admin matched projects ready for pricing.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Kitchen renovation — submitted yesterday</span>
+                  <div>
+                    <a class="btn" href="quote-submit.html">Submit Quote</a>
+                    <a class="btn-secondary" href="site-visit.html">Schedule Site Visit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid-two" style="margin-top: 2rem;">
+            <div class="dashboard-card" id="active-quotes">
+              <h3>3. Active Quotes</h3>
+              <p>Track each quote until the client approves or declines.</p>
+              <ul class="list-clean">
+                <li>
+                  <span>Langley bathroom remodel</span>
+                  <span class="status-pill">Pending</span>
+                </li>
+                <li>
+                  <span>Cochrane deck build</span>
+                  <span class="status-pill">Approved</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card" id="active-projects">
+              <h3>4. Active Projects</h3>
+              <p>See payment milestones, messaging, and schedule in one view.</p>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <span>Milestone: Foundation Pour</span>
+                    <div class="tag">Escrow Funded</div>
+                  </div>
+                  <a class="btn" href="project-timeline.html">View Project Timeline</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="dashboard-card" style="margin-top: 2rem;">
+            <h3>5. Finished Projects</h3>
+            <p>Archive completed work, export invoices, and showcase reviews.</p>
+            <ul class="list-clean">
+              <li>
+                <span>Edmonton exterior upgrade — Rated 4.9/5</span>
+                <a class="btn-secondary" href="project-archive.html">View Completed Project</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kee">
+        <div class="container">
+          <div class="dashboard-card">
+            <h3>Need help?</h3>
+            <p>Kee can update you on quote approvals, escrow milestones, and upcoming site visits. Ask “Track My Project” or connect with live support 24/7.</p>
+            <a class="btn" href="kee.html" aria-label="Chat with Kee">Chat with Kee</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
+    </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="client-portal.html">Find a Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="apply.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Get status updates on quotes, escrow releases, or account verification.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for a status update" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

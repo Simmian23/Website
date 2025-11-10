@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apply as a Contractor | UpKept</title>
+    <title>Escrow Protection | UpKept</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -37,33 +37,49 @@
     <main>
       <section class="section-intro">
         <div class="container narrow">
-          <h1>Grow with verified projects</h1>
-          <p>Apply once, verify your credentials, and start receiving qualified project invitations with escrow-backed payments.</p>
+          <h1>How UpKept escrow keeps every project safe</h1>
+          <p>Our milestone-based escrow system ensures funds are verified, staged, and released only when both client and contractor approve the work.</p>
         </div>
       </section>
       <section class="section">
         <div class="container">
-          <form class="card" action="contractor-application-success.html" method="get">
-            <div class="grid-two">
-              <div>
-                <label for="company">Company Name</label>
-                <input id="company" name="company" type="text" placeholder="Acme Renovations" required />
-              </div>
-              <div>
-                <label for="years">Years in Business</label>
-                <input id="years" name="years" type="number" min="0" placeholder="10" />
-              </div>
-            </div>
-            <label for="trade">Trades Offered</label>
-            <input id="trade" name="trade" type="text" placeholder="Plumbing, Electrical, Roofing" required />
-            <label for="area">Service Area</label>
-            <input id="area" name="area" type="text" placeholder="Kelowna and surrounding" />
-            <label for="summary">Company Summary</label>
-            <textarea id="summary" name="summary" placeholder="Share your specialties and certifications"></textarea>
-            <label for="email">Contact Email</label>
-            <input id="email" name="email" type="email" placeholder="info@acmerenovations.ca" required />
-            <button class="btn" type="submit">Submit Application</button>
-          </form>
+          <div class="step-cards">
+            <article class="step-card">
+              <div class="step-icon">1</div>
+              <h3>Fund the project</h3>
+              <p>Clients deposit funds into a protected account managed through Stripe Connect or PayPal escrow integrations.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">2</div>
+              <h3>Agree on milestones</h3>
+              <p>Clear deliverables and dates are logged. Kee sends reminders before each review window.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">3</div>
+              <h3>Release with approval</h3>
+              <p>Funds move only after homeowner sign-off. Contractors receive instant payout notifications.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon">4</div>
+              <h3>Resolve disputes</h3>
+              <p>Our admin team mediates disagreements with documented timelines, photos, and message histories.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section muted">
+        <div class="container">
+          <h2>Fees &amp; protections</h2>
+          <ul class="list-clean">
+            <li>2% homeowner protection fee per funded milestone.</li>
+            <li>10% contractor platform commission on completed jobs.</li>
+            <li>Automated lien waiver templates and digital signatures.</li>
+            <li>Escrow ledger accessible to clients, contractors, and admins.</li>
+          </ul>
+          <div class="section-cta">
+            <a class="btn" href="pricing.html">View Pricing</a>
+            <a class="btn-secondary" href="quote-scheduler.html">Book a Call</a>
+          </div>
         </div>
       </section>
     </main>

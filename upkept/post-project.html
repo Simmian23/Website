@@ -1,90 +1,125 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post a Project – Upkept</title>
+    <title>Post a Project | UpKept</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo">Upkept</div>
-        <div>
-          <a href="index.html">Home</a>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="post-project.html">Post a Project</a>
-          <a href="apply.html">Apply</a>
-          <a href="pricing.html">Pricing</a>
-        </div>
-      </nav>
-    </header>
+
+<header class="site-header">
+  <nav class="top-nav">
+    <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" role="menubar">
+      <a href="about.html" role="menuitem">Who We Are</a>
+      <a href="how-it-works.html" role="menuitem">How It Works</a>
+      <a href="benefits.html" role="menuitem">Why UpKept</a>
+      <a href="features.html" role="menuitem">Features</a>
+      <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+      <a href="client-portal.html" role="menuitem">Client Portal</a>
+      <a href="admin-dashboard.html" role="menuitem">Admin</a>
+      <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
+    </div>
+  </nav>
+</header>
+
+
     <main>
-      <h1 class="section-heading">Post a Project</h1>
-      <p>
-        Fill out the form below to tell us about your project. We’ll get back
-        to you with up to three vetted contractors who are available to give
-        quotes.
-      </p>
-      <form action="#" method="post">
-        <label for="name">Your name</label>
-        <input type="text" id="name" name="name" placeholder="Jane Doe" required />
-
-        <label for="email">Email address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="jane@example.com"
-          required
-        />
-
-        <label for="location">Location (City/Neighbourhood)</label>
-        <input
-          type="text"
-          id="location"
-          name="location"
-          placeholder="Kelowna, BC"
-          required
-        />
-
-        <label for="scope">Project description</label>
-        <textarea
-          id="scope"
-          name="scope"
-          placeholder="Briefly describe the work to be done..."
-          required
-        ></textarea>
-
-        <label for="budget">Approximate budget (CAD)</label>
-        <input
-          type="text"
-          id="budget"
-          name="budget"
-          placeholder="$5,000 – $10,000"
-        />
-
-        <label for="timeline">Desired timeline</label>
-        <input
-          type="text"
-          id="timeline"
-          name="timeline"
-          placeholder="e.g. within 2 months"
-        />
-
-        <label for="dates">Preferred date windows for site visit (pick 3)</label>
-        <input
-          type="text"
-          id="dates"
-          name="dates"
-          placeholder="e.g. 2025-11-15 AM, 2025-11-17 PM, 2025-11-20 anytime"
-        />
-
-        <button type="submit">Submit Project</button>
-      </form>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>Ready to post your project?</h1>
+          <p>Share the essentials and our concierge team will curate a short list of verified contractors within 24 hours.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <form class="card" action="project-submitted.html" method="get">
+            <label for="project-title">Project Title</label>
+            <input id="project-title" name="project-title" type="text" placeholder="Kitchen renovation" required />
+            <label for="scope">Scope &amp; Goals</label>
+            <textarea id="scope" name="scope" placeholder="Tell us what you want to accomplish" required></textarea>
+            <label for="budget">Estimated Budget</label>
+            <input id="budget" name="budget" type="text" placeholder="$40,000" />
+            <label for="timeline">Preferred Timeline</label>
+            <input id="timeline" name="timeline" type="month" />
+            <button class="btn" type="submit">Submit Project</button>
+          </form>
+        </div>
+      </section>
+      <section class="section muted">
+        <div class="container">
+          <div class="section-cta">
+            <a class="btn" href="submit-project.html">Use Advanced Intake</a>
+            <a class="btn-secondary" href="contractor-directory.html">Browse Contractors</a>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer>
-      &copy; 2025 Upkept. All rights reserved.
+
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
     </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="client-portal.html">Find a Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="apply.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Select an option to jump into the right workspace or type a question below.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html" aria-label="Send a message to Kee">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for guidance" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
+

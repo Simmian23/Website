@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apply as a Contractor | UpKept</title>
+    <title>Book a Quote | UpKept</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -37,32 +37,34 @@
     <main>
       <section class="section-intro">
         <div class="container narrow">
-          <h1>Grow with verified projects</h1>
-          <p>Apply once, verify your credentials, and start receiving qualified project invitations with escrow-backed payments.</p>
+          <h1>Schedule a quote or site visit</h1>
+          <p>Pick your preferred times and we’ll coordinate with verified contractors. You’ll receive confirmations and calendar invites automatically.</p>
         </div>
       </section>
       <section class="section">
         <div class="container">
-          <form class="card" action="contractor-application-success.html" method="get">
+          <form class="card" action="quote-accept.html" method="get">
             <div class="grid-two">
               <div>
-                <label for="company">Company Name</label>
-                <input id="company" name="company" type="text" placeholder="Acme Renovations" required />
+                <label for="project">Project</label>
+                <input id="project" name="project" type="text" placeholder="Kitchen renovation" required />
               </div>
               <div>
-                <label for="years">Years in Business</label>
-                <input id="years" name="years" type="number" min="0" placeholder="10" />
+                <label for="trade-type">Trade</label>
+                <select id="trade-type" name="trade-type">
+                  <option>General Contracting</option>
+                  <option>Electrical</option>
+                  <option>Plumbing</option>
+                  <option>Roofing</option>
+                  <option>Landscaping</option>
+                </select>
               </div>
             </div>
-            <label for="trade">Trades Offered</label>
-            <input id="trade" name="trade" type="text" placeholder="Plumbing, Electrical, Roofing" required />
-            <label for="area">Service Area</label>
-            <input id="area" name="area" type="text" placeholder="Kelowna and surrounding" />
-            <label for="summary">Company Summary</label>
-            <textarea id="summary" name="summary" placeholder="Share your specialties and certifications"></textarea>
-            <label for="email">Contact Email</label>
-            <input id="email" name="email" type="email" placeholder="info@acmerenovations.ca" required />
-            <button class="btn" type="submit">Submit Application</button>
+            <label for="times">Preferred Time Windows</label>
+            <textarea id="times" name="times" placeholder="Example: Week of May 6, afternoons"></textarea>
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" placeholder="Share access instructions or onsite requirements"></textarea>
+            <button class="btn" type="submit">Submit Availability</button>
           </form>
         </div>
       </section>

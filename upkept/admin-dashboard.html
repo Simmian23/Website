@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | UpKept</title>
+    <meta
+      name="description"
+      content="Oversee contractor verification, escrow payments, disputes, and content across the UpKept marketplace with centralized administrative controls."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="top-nav">
+        <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" role="menubar">
+          <a href="about.html" role="menuitem">Who We Are</a>
+          <a href="how-it-works.html" role="menuitem">How It Works</a>
+          <a href="benefits.html" role="menuitem">Why UpKept</a>
+          <a href="client-portal.html" role="menuitem">Client Portal</a>
+          <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+          <a href="admin-dashboard.html" role="menuitem" aria-current="page">Admin</a>
+          <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>Administrative oversight with trust at the core.</h1>
+          <p>
+            Monitor contractor applications, manage escrow funds, resolve disputes, and keep UpKept content fresh. The admin dashboard gives you a real-time snapshot of everything happening on the platform.
+          </p>
+          <div class="section-cta">
+            <a class="btn" href="admin-approvals.html">Review Applications</a>
+            <a class="btn-secondary" href="escrow-monitor.html">View Escrow Activity</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="verification">
+        <div class="container">
+          <header class="section-header">
+            <h2>1. Contractor Verification &amp; Compliance</h2>
+            <p>Approve or decline applications with full visibility into documentation and references.</p>
+          </header>
+          <div class="grid-two">
+            <div class="dashboard-card">
+              <h3>Pending Applications</h3>
+              <ul class="list-clean">
+                <li>
+                  <div>
+                    <strong>Prairie Peak Builders</strong>
+                    <div class="tag">AB • Roofing</div>
+                    <p>License uploaded · Insurance valid through 2026</p>
+                  </div>
+                  <div>
+                    <a class="btn" href="admin-approvals.html#approve">Approve</a>
+                    <a class="btn-secondary" href="admin-approvals.html#decline">Decline</a>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Vancouver Coastal Electrical</strong>
+                    <div class="tag">BC • Electrical</div>
+                    <p>References pending · Insurance missing</p>
+                  </div>
+                  <a class="btn-secondary" href="admin-approvals.html#request-info">Request Info</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card">
+              <h3>Verification Checklist</h3>
+              <ul class="list-clean">
+                <li>
+                  <span>License validated</span>
+                  <span class="status-pill">Complete</span>
+                </li>
+                <li>
+                  <span>Insurance uploaded</span>
+                  <span class="status-pill">In Progress</span>
+                </li>
+                <li>
+                  <span>Reference calls</span>
+                  <span class="status-pill">Scheduled</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="payments">
+        <div class="container">
+          <header class="section-header">
+            <h2>2. Escrow Payments &amp; Disputes</h2>
+            <p>Maintain transparency across every milestone payment with fast dispute resolution.</p>
+          </header>
+          <div class="grid-two">
+            <div class="dashboard-card">
+              <h3>Escrow Activity</h3>
+              <ul class="list-clean">
+                <li>
+                  <span>Milestone release — Kitchen renovation ($8,200)</span>
+                  <span class="status-pill">Completed</span>
+                </li>
+                <li>
+                  <span>Funding request — Basement suite ($12,500)</span>
+                  <span class="status-pill">Awaiting Client</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card">
+              <h3>Dispute Resolution</h3>
+              <ul class="list-clean">
+                <li>
+                  <span>Roofing timeline delay</span>
+                  <a class="btn" href="dispute-center.html">Open Case</a>
+                </li>
+                <li>
+                  <span>Change order approval</span>
+                  <a class="btn-secondary" href="dispute-center.html#threads">View Thread</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="content">
+        <div class="container">
+          <header class="section-header">
+            <h2>3. Marketplace Content &amp; Community</h2>
+            <p>Publish updates, moderate reviews, and spotlight verified professionals.</p>
+          </header>
+          <div class="grid-three">
+            <div class="dashboard-card">
+              <h3>Project Listings</h3>
+              <p>Review drafts before they go live and ensure compliance with UpKept standards.</p>
+              <a class="btn-secondary" href="listing-manager.html">Manage Listings</a>
+            </div>
+            <div class="dashboard-card">
+              <h3>Blog &amp; Education Hub</h3>
+              <p>Edit articles like “How Escrow Protects Homeowners” and “Top 10 Contractor Red Flags.”</p>
+              <a class="btn-secondary" href="content-editor.html">Edit Content</a>
+            </div>
+            <div class="dashboard-card">
+              <h3>Review Moderation</h3>
+              <p>Ensure every testimonial is authentic and aligns with our trust policy.</p>
+              <a class="btn-secondary" href="review-moderation.html">Moderate Reviews</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="analytics">
+        <div class="container">
+          <header class="section-header">
+            <h2>4. Performance &amp; Insights</h2>
+            <p>Track growth metrics to inform marketing, onboarding, and support initiatives.</p>
+          </header>
+          <div class="grid-two">
+            <div class="dashboard-card">
+              <h3>Platform Metrics</h3>
+              <ul class="list-clean">
+                <li>
+                  <span>Active contractors</span>
+                  <span class="status-pill">128</span>
+                </li>
+                <li>
+                  <span>Jobs in progress</span>
+                  <span class="status-pill">44</span>
+                </li>
+                <li>
+                  <span>Escrow volume (MTD)</span>
+                  <span class="status-pill">$240K</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dashboard-card">
+              <h3>Revenue Snapshot</h3>
+              <ul class="list-clean">
+                <li>
+                  <span>Listing subscriptions</span>
+                  <span class="status-pill">$500</span>
+                </li>
+                <li>
+                  <span>Commission fees</span>
+                  <span class="status-pill">$6,000</span>
+                </li>
+                <li>
+                  <span>Escrow protection fees</span>
+                  <span class="status-pill">$600</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kee">
+        <div class="container">
+          <div class="dashboard-card">
+            <h3>Admin Support Tools</h3>
+            <p>Kee surfaces automated alerts for stalled applications, escrow disputes, and urgent support tickets. Escalate to a live agent with a single click.</p>
+            <a class="btn" href="kee.html">Chat with Kee</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
+    </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="admin-approvals.html">Review Applications</li>
+          <li data-link="escrow-monitor.html">Escrow Dashboard</li>
+          <li data-link="content-editor.html">Manage Content</li>
+          <li data-link="admin-insights.html">View Insights</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Kee automates alerts, compiles reports, and routes urgent cases to the right human specialist.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for an admin update" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

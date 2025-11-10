@@ -3,96 +3,425 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upkept – Trusted Home Renovations</title>
+    <title>UpKept | Canada’s Trusted Contractor Marketplace</title>
+    <meta
+      name="description"
+      content="UpKept connects Canadian homeowners and property managers with verified, insured contractors through escrow-protected payments, 24/7 support, and transparent project tracking."
+    />
+    <meta
+      name="keywords"
+      content="UpKept, contractor marketplace Canada, secure escrow payments, verified contractors, hire tradespeople Kelowna, Calgary, Cochrane, home renovation platform Canada, property management contracting"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "UpKept",
+        "url": "https://www.upkept.ca",
+        "logo": "https://www.upkept.ca/assets/logo.png",
+        "description": "UpKept is Canada’s escrow-protected contractor marketplace connecting homeowners, property managers, and verified professionals.",
+        "sameAs": [
+          "https://www.linkedin.com/company/upkept",
+          "https://www.instagram.com/upkept",
+          "https://www.facebook.com/upkept"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CA"
+        },
+        "areaServed": "Canada",
+        "foundingDate": "2024",
+        "makesOffer": {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Escrow-backed contractor hiring",
+            "serviceType": "Home renovation and property maintenance services"
+          }
+        }
+      }
+    </script>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo">Upkept</div>
-        <div>
-          <a href="index.html">Home</a>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="post-project.html">Post a Project</a>
-          <a href="apply.html">Apply</a>
-          <a href="pricing.html">Pricing</a>
+    <header class="site-header">
+      <nav class="top-nav">
+        <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" role="menubar">
+          <a href="about.html" role="menuitem">Who We Are</a>
+          <a href="how-it-works.html" role="menuitem">How It Works</a>
+          <a href="benefits.html" role="menuitem">Why UpKept</a>
+          <a href="features.html" role="menuitem">Features</a>
+          <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+          <a href="client-portal.html" role="menuitem">Client Portal</a>
+          <a href="admin-dashboard.html" role="menuitem">Admin</a>
+          <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <h1>Making Renovations Safe & Simple</h1>
-        <p>
-          Upkept connects homeowners with vetted local contractors and protects
-          your project with milestone‑based payments. Get multiple quotes
-          quickly, choose with confidence, and pay only when milestones are
-          complete.
-        </p>
-        <a href="post-project.html" class="btn">Get Started</a>
-      </section>
-
-      <section>
-        <h2 class="section-heading">Why Upkept?</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Vetted Pros</h3>
-            <p>
-              Every contractor undergoes rigorous checks: licences, insurance,
-              references, site visits and contract reviews. No more guessing
-              who to trust.
-            </p>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-icons" aria-hidden="true">
+            <span class="icon-badge" title="Escrow Protection">🔐</span>
+            <span class="icon-badge" title="Verified Contractors">✅</span>
+            <span class="icon-badge" title="Live Support">💬</span>
           </div>
-          <div class="card">
-            <h3>Escrow‑like Payments</h3>
-            <p>
-              Funds are held in a safe account and released only when work
-              milestones are met. Protect yourself from unfinished work or
-              surprise costs.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Multiple Quotes</h3>
-            <p>
-              Post once and receive up to three quotes from quality pros. See
-              their availability and pick the one that fits your schedule and
-              budget.
-            </p>
+          <h1 id="hero-title">Connecting Real People with Real Businesses — Safely.</h1>
+          <p>
+            UpKept protects every project through escrow payments, verified contractors, and real-time customer service. Discover a human-first marketplace built for Canadian homes and properties.
+          </p>
+          <div class="hero-cta">
+            <a class="btn" href="client-portal.html">Find a Contractor</a>
+            <a class="btn-secondary" href="contractor-portal.html">Join as a Contractor</a>
           </div>
         </div>
       </section>
 
-      <section>
-        <h2 class="section-heading">How It Works</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>1. Post a project</h3>
-            <p>
-              Tell us what you need, your timeline and your budget. Give us
-              three preferred dates for site visits, and we’ll do the rest.
-            </p>
+      <section id="mission" class="section-intro">
+        <div class="container narrow">
+          <h2>We believe home improvement should be safe, transparent, and stress-free.</h2>
+          <p>
+            UpKept connects homeowners and businesses with verified, insured contractors through a secure escrow payment network that ensures fairness and accountability from quote to completion.
+          </p>
+          <ul class="keyword-list" aria-label="SEO keywords">
+            <li>UpKept</li>
+            <li>contractor escrow</li>
+            <li>verified contractor platform</li>
+            <li>Canadian home renovation app</li>
+            <li>secure contractor marketplace</li>
+            <li>escrow Canada</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="how" class="section">
+        <div class="container">
+          <header class="section-header">
+            <h2>What We Do</h2>
+            <p>Four simple steps to launch, manage, and complete your next project with total confidence.</p>
+          </header>
+          <div class="step-cards">
+            <article class="step-card">
+              <div class="step-icon" aria-hidden="true">📝</div>
+              <h3>Post your project</h3>
+              <p>Share scope, budget, and timing so we can understand your goals from the start.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon" aria-hidden="true">🤝</div>
+              <h3>Get matched with vetted contractors</h3>
+              <p>We connect you with licensed professionals who meet UpKept’s verification standards.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon" aria-hidden="true">💳</div>
+              <h3>Approve quotes &amp; pay securely</h3>
+              <p>Use escrow to lock in fair terms and release funds only when milestones are complete.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-icon" aria-hidden="true">📈</div>
+              <h3>Track progress to completion</h3>
+              <p>Monitor timelines, deliverables, and communication in one transparent workspace.</p>
+            </article>
           </div>
-          <div class="card">
-            <h3>2. We verify and match</h3>
-            <p>
-              Our team reviews your request and hand‑picks two or three
-              contractors who meet our vetting standards and fit your scope.
-            </p>
+          <div class="section-cta">
+            <a class="btn" href="client-portal.html">Start Your Project</a>
           </div>
-          <div class="card">
-            <h3>3. Choose and fund</h3>
+        </div>
+      </section>
+
+      <section id="benefits" class="section muted">
+        <div class="container">
+          <header class="section-header">
+            <h2>Why Use UpKept</h2>
+            <p>Confidence and clarity for every client, contractor, and project.</p>
+          </header>
+          <div class="benefit-grid">
+            <article class="benefit-card">
+              <h3>Escrow Protection</h3>
+              <p>Payments are released only after milestones are complete.</p>
+            </article>
+            <article class="benefit-card">
+              <h3>Verified Contractors</h3>
+              <p>Every contractor passes license, insurance, and reference checks.</p>
+            </article>
+            <article class="benefit-card">
+              <h3>Legal &amp; Payment Security</h3>
+              <p>Built-in contracts, lien protection, and documentation.</p>
+            </article>
+            <article class="benefit-card">
+              <h3>All Trades, One Platform</h3>
+              <p>Roofing, plumbing, HVAC, and commercial builds across Canada.</p>
+            </article>
+            <article class="benefit-card">
+              <h3>24/7 Support</h3>
+              <p>Live chat and AI assistance through Kee whenever you need it.</p>
+            </article>
+          </div>
+          <div class="section-cta">
+            <a class="btn-secondary" href="escrow.html">See How Escrow Works</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <header class="section-header">
+            <h2>Components of UpKept</h2>
+            <p>Powerful tools that keep projects accountable and on schedule.</p>
+          </header>
+          <div class="feature-grid">
+            <article class="feature-card" id="escrow">
+              <h3>Escrow &amp; Secure Payments</h3>
+              <p>Milestone-based transparency keeps everyone aligned and protects both sides.</p>
+              <a class="feature-link" href="pricing.html">Explore payment protection</a>
+            </article>
+            <article class="feature-card">
+              <h3>Trades Directory</h3>
+              <p>Searchable by city, province, trade specialization, and availability.</p>
+              <a class="feature-link" href="client-portal.html#recommended-contractors">Browse trades</a>
+            </article>
+            <article class="feature-card">
+              <h3>AI Chat Support</h3>
+              <p>“Kee” offers real-time status updates, project guidance, and education.</p>
+              <a class="feature-link" href="kee.html">Meet Kee</a>
+            </article>
+            <article class="feature-card">
+              <h3>Smart Matching Engine</h3>
+              <p>Connects each project to the best-fit contractors using data-driven insights.</p>
+              <a class="feature-link" href="how-it-works.html">See the workflow</a>
+            </article>
+          </div>
+          <div class="section-cta">
+            <a class="btn" href="features.html">Discover All Features</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="details" class="section muted">
+        <div class="container">
+          <div class="details-grid">
+            <article>
+              <h3>Escrow-backed Peace of Mind</h3>
+              <p>
+                UpKept’s escrow flow mirrors best-in-class payment protection: funds are verified, milestones are scheduled, and releases require confirmation from both parties. Built-in lien waivers and contract templates keep your investment safe.
+              </p>
+            </article>
+            <article>
+              <h3>Revenue Model Designed for Growth</h3>
+              <ul>
+                <li>Hybrid monetization: listing plans plus project commissions.</li>
+                <li>$50/month premium visibility upgrades for contractors.</li>
+                <li>10% platform fee on completed jobs via escrow.</li>
+                <li>2% homeowner payment protection per milestone.</li>
+                <li>Forecast: $7,100/month with 30 contractors and 20 jobs.</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Trust &amp; Verification Protocol</h3>
+              <ul>
+                <li>License &amp; insurance confirmation (general liability + WCB).</li>
+                <li>3–5 reference checks with documented outcomes.</li>
+                <li>Reputation review across BBB and trade associations.</li>
+                <li>Homeowner-visible verification badges for transparency.</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Education Hub &amp; Blog</h3>
+              <p>
+                Stay informed with guides like “How Escrow Protects Homeowners,” “Top 10 Contractor Red Flags in Canada,” and “Understanding Legal Protections in Contracting.” Every article drives action with <a href="client-portal.html">Start Your Project Safely with UpKept</a> CTAs.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="testimonials">
+        <div class="container">
+          <header class="section-header">
+            <h2 id="testimonials">Trusted by Clients &amp; Contractors</h2>
+            <p>Real voices from Canadian homeowners, contractors, and property managers.</p>
+          </header>
+          <div class="testimonial-grid">
+            <figure class="testimonial-card">
+              <blockquote>
+                “UpKept made hiring my roofer stress-free.”
+              </blockquote>
+              <figcaption>Homeowner, Kelowna</figcaption>
+            </figure>
+            <figure class="testimonial-card">
+              <blockquote>
+                “The escrow feature gave both of us peace of mind.”
+              </blockquote>
+              <figcaption>Contractor, Calgary</figcaption>
+            </figure>
+            <figure class="testimonial-card">
+              <blockquote>
+                “Finally, a platform that protects clients and contractors.”
+              </blockquote>
+              <figcaption>Property Manager, Edmonton</figcaption>
+            </figure>
+          </div>
+          <div class="section-cta">
+            <a class="btn" href="client-portal.html">Get Started Today</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="cta-summary">
+        <div class="container">
+          <header class="section-header">
+            <h2>All Calls to Action at a Glance</h2>
+            <p>Give clients, contractors, and admins a clear path to their next step.</p>
+          </header>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>CTA Text</th>
+                  <th>Destination</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Find Contractors</td>
+                  <td>Find a Contractor</td>
+                  <td><a href="client-portal.html">Client Sign-Up</a></td>
+                </tr>
+                <tr>
+                  <td>Join as Contractor</td>
+                  <td>Apply Now</td>
+                  <td><a href="contractor-portal.html">Contractor Portal</a></td>
+                </tr>
+                <tr>
+                  <td>Start Project</td>
+                  <td>Start Your Project</td>
+                  <td><a href="submit-project.html">Project Intake</a></td>
+                </tr>
+                <tr>
+                  <td>Schedule Quote</td>
+                  <td>Book a Quote</td>
+                  <td><a href="quote-scheduler.html">Quote Scheduler</a></td>
+                </tr>
+                <tr>
+                  <td>Track Project</td>
+                  <td>View Project Timeline</td>
+                  <td><a href="project-tracker.html">Active Projects</a></td>
+                </tr>
+                <tr>
+                  <td>Contact Support</td>
+                  <td>Chat with Kee</td>
+                  <td><a href="kee.html">Opens chatbot</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kee">
+        <div class="container kee-layout">
+          <div>
+            <h2>Meet Kee — Your AI &amp; Live Support Companion</h2>
             <p>
-              Compare quotes, pick your pro and (optionally) place funds into
-              escrow. Milestone releases mean you only pay as work is
-              completed.
+              Kee is available on every page to help you find contractors, submit projects, track progress, and reach real humans. Select a quick action or ask for guidance on payments, verification, or next steps.
             </p>
+            <ul>
+              <li>Find a Contractor → Client sign-up</li>
+              <li>Submit a Project → Guided form with uploads</li>
+              <li>Track My Project → Direct login to your dashboard</li>
+              <li>Apply as Contractor → Contractor onboarding</li>
+              <li>Talk to Support → Live agent escalation</li>
+            </ul>
+          </div>
+          <div class="kee-card" role="region" aria-label="Kee chatbot preview">
+            <div class="kee-card-header">Kee</div>
+            <div class="kee-card-body">
+              <p>Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+              <ul class="kee-options">
+                <li>Find a Contractor</li>
+                <li>Submit a Project</li>
+                <li>Track My Project</li>
+                <li>Apply as Contractor</li>
+                <li>Talk to Support</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      &copy; 2025 Upkept. All rights reserved.
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
     </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="client-portal.html">Find a Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="apply.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Select an option to jump into the right workspace or type a question below.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html" aria-label="Send a message to Kee">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input
+          id="chatbot-input"
+          type="text"
+          name="message"
+          placeholder="Ask Kee about escrow, verification, or support"
+          autocomplete="off"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
