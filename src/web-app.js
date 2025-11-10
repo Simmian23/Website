@@ -64,6 +64,16 @@ function publicContractor(contractor, store) {
   const base = { ...contractor };
   delete base.userId;
   const user = store.findUserById(contractor.userId);
+  const reviews = store.listReviews({ contractorId: contractor.id, status: 'published' });
+  const averageRating = reviews.length
+    ? Number((reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length).toFixed(2))
+    : null;
+  return {
+    ...base,
+    contactName: user?.name || null,
+    contactEmail: user?.email || null,
+    reviewCount: reviews.length,
+    averageRating
   return {
     ...base,
     contactName: user?.name || null,
@@ -92,6 +102,34 @@ function publicQuote(quote, store) {
           contactName: contractorUser?.name || null
         }
       : null
+  };
+}
+
+function publicReview(review, store) {
+  const contractor = store.data.contractors.find((entry) => entry.id === review.contractorId);
+  const client = store.findUserById(review.clientId);
+  return {
+    ...review,
+    contractor: contractor ? publicContractor(contractor, store) : null,
+    client: client ? { id: client.id, name: client.name } : null
+  };
+}
+
+function publicPayment(payment, store) {
+  const project = store.findProjectById(payment.projectId);
+  const contractor = project ? store.data.contractors.find((entry) => entry.id === project.awardedContractorId) : null;
+  return {
+    ...payment,
+    project: project ? { id: project.id, title: project.title } : null,
+    contractor: contractor ? publicContractor(contractor, store) : null
+  };
+}
+
+function publicVerification(record, store) {
+  const contractor = store.data.contractors.find((entry) => entry.id === record.contractorId);
+  return {
+    ...record,
+    contractor: contractor ? publicContractor(contractor, store) : null
   };
 }
 
@@ -249,6 +287,20 @@ async function handleProjectsRoutes(req, res, pathname, method, store, sessionCo
     } catch (error) {
       return sendJson(res, 400, { error: 'INVALID_JSON' });
     }
+    const { title, scope, budget, timeline, city, province, tradeType, milestones = [] } = body;
+    if (!title || !scope) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    const normalizedMilestones = Array.isArray(milestones)
+      ? milestones
+          .map((milestone) => ({
+            title: milestone?.title || 'Milestone',
+            description: milestone?.description || '',
+            amount: milestone?.amount,
+            dueDate: milestone?.dueDate || null
+          }))
+          .slice(0, 10)
+      : [];
     const { title, scope, budget, timeline, city, province, tradeType } = body;
     if (!title || !scope) {
       return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
@@ -261,6 +313,8 @@ async function handleProjectsRoutes(req, res, pathname, method, store, sessionCo
       timeline: timeline?.trim() || '',
       city: city?.trim() || '',
       province: province?.trim() || '',
+      tradeType: tradeType?.trim() || '',
+      milestones: normalizedMilestones
       tradeType: tradeType?.trim() || ''
     });
     return sendJson(res, 201, { project: publicProject(project, store) });
@@ -274,6 +328,14 @@ async function handleProjectsRoutes(req, res, pathname, method, store, sessionCo
 
   if (pathname === '/api/projects/open' && method === 'GET') {
     if (!ensureAuthenticated(res, sessionContext, ['contractor', 'admin'])) return true;
+    const filters = {};
+    const search = new URL(req.url, `http://${req.headers.host}`).searchParams;
+    if (search.get('tradeType')) filters.tradeType = search.get('tradeType');
+    if (search.get('province')) filters.province = search.get('province');
+    if (search.get('city')) filters.city = search.get('city');
+    const projects = store
+      .listProjects({ status: 'posted', ...filters })
+      .map((project) => publicProject(project, store));
     const projects = store.listProjects({ status: 'posted' }).map((project) => publicProject(project, store));
     return sendJson(res, 200, { projects });
   }
@@ -290,11 +352,90 @@ async function handleProjectsRoutes(req, res, pathname, method, store, sessionCo
     return sendJson(res, 200, { projects });
   }
 
+  if (pathname.startsWith('/api/projects/') && method === 'GET') {
+    const parts = pathname.split('/');
+    if (parts.length === 4 && parts[3]) {
+      if (!ensureAuthenticated(res, sessionContext, ['homeowner', 'property_manager', 'contractor', 'admin'])) return true;
+      const projectId = Number.parseInt(parts[3], 10);
+      const project = store.findProjectById(projectId);
+      if (!project) {
+        return sendJson(res, 404, { error: 'NOT_FOUND' });
+      }
+      return sendJson(res, 200, { project: publicProject(project, store) });
+    }
+  }
+
+  if (pathname.startsWith('/api/projects/') && pathname.endsWith('/status') && method === 'POST') {
+    const parts = pathname.split('/');
+    const projectId = Number.parseInt(parts[3], 10);
+    if (!ensureAuthenticated(res, sessionContext, ['homeowner', 'property_manager', 'admin'])) return true;
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const { status } = body;
+    if (!['posted', 'in_escrow', 'completed', 'cancelled'].includes(status)) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    try {
+      const project = await store.updateProjectStatus(projectId, status);
+      return sendJson(res, 200, { project: publicProject(project, store) });
+    } catch (error) {
+      if (error.message === 'NOT_FOUND') {
+        return sendJson(res, 404, { error: 'NOT_FOUND' });
+      }
+      return sendJson(res, 500, { error: 'SERVER_ERROR' });
+    }
+  }
+
+  if (
+    pathname.startsWith('/api/projects/') &&
+    pathname.includes('/milestones/') &&
+    pathname.endsWith('/status') &&
+    method === 'POST'
+  ) {
+    if (!ensureAuthenticated(res, sessionContext, ['homeowner', 'property_manager', 'admin'])) return true;
+    const parts = pathname.split('/');
+    const projectId = Number.parseInt(parts[3], 10);
+    const milestoneId = Number.parseInt(parts[5], 10);
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const { status } = body;
+    if (!['pending', 'funded', 'submitted', 'released', 'disputed'].includes(status)) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    try {
+      const { project } = await store.setMilestoneStatus(projectId, milestoneId, status);
+      return sendJson(res, 200, { project: publicProject(project, store) });
+    } catch (error) {
+      if (error.message === 'NOT_FOUND') {
+        return sendJson(res, 404, { error: 'NOT_FOUND' });
+      }
+      return sendJson(res, 500, { error: 'SERVER_ERROR' });
+    }
+  }
+
   return false;
 }
 
 async function handleContractorRoutes(req, res, pathname, method, store, sessionContext) {
   if (pathname === '/api/contractors' && method === 'GET') {
+    const search = new URL(req.url, `http://${req.headers.host}`).searchParams;
+    const contractors = store
+      .listContractors({
+        status: search.get('status') || undefined,
+        trade: search.get('trade') || undefined,
+        province: search.get('province') || undefined,
+        city: search.get('city') || undefined,
+        premium: search.get('premium') === 'true'
+      })
+      .map((contractor) => publicContractor(contractor, store));
     const status = new URL(req.url, `http://${req.headers.host}`).searchParams.get('status') || undefined;
     const contractors = store.listContractors({ status }).map((contractor) => publicContractor(contractor, store));
     return sendJson(res, 200, { contractors });
@@ -308,6 +449,7 @@ async function handleContractorRoutes(req, res, pathname, method, store, session
     } catch (error) {
       return sendJson(res, 400, { error: 'INVALID_JSON' });
     }
+    const { companyName, trades, province, city, summary, yearsInBusiness, isPremium } = body;
     const { companyName, trades, province, city, summary, yearsInBusiness } = body;
     if (!companyName || !trades) {
       return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
@@ -319,6 +461,8 @@ async function handleContractorRoutes(req, res, pathname, method, store, session
       province: province?.trim() || '',
       city: city?.trim() || '',
       summary: summary?.trim() || '',
+      yearsInBusiness: Number.parseInt(yearsInBusiness, 10) || 0,
+      isPremium: Boolean(isPremium)
       yearsInBusiness: Number.parseInt(yearsInBusiness, 10) || 0
     });
     return sendJson(res, 201, { contractor: publicContractor(contractor, store) });
@@ -458,6 +602,277 @@ async function handleAdminRoutes(req, res, pathname, method, store, sessionConte
   return false;
 }
 
+async function handlePaymentRoutes(req, res, pathname, method, store, sessionContext) {
+  if (pathname === '/api/payments/fund' && method === 'POST') {
+    if (!ensureAuthenticated(res, sessionContext, ['homeowner', 'property_manager'])) return true;
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const projectId = Number.parseInt(body.projectId, 10);
+    const milestoneId = Number.parseInt(body.milestoneId, 10);
+    const amount = Number.parseFloat(body.amount);
+    if (!Number.isFinite(projectId) || !Number.isFinite(milestoneId) || !Number.isFinite(amount) || amount <= 0) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    const project = store.findProjectById(projectId);
+    if (!project || project.clientId !== sessionContext.user.id) {
+      return sendJson(res, 403, { error: 'FORBIDDEN' });
+    }
+    if (!project.awardedContractorId) {
+      return sendJson(res, 409, { error: 'CONTRACTOR_NOT_ASSIGNED' });
+    }
+    try {
+      const payment = await store.createPayment({
+        projectId,
+        milestoneId,
+        amount,
+        payerId: sessionContext.user.id,
+        payeeId: project.awardedContractorId,
+        processor: body.processor || 'simulated'
+      });
+      return sendJson(res, 201, { payment: publicPayment(payment, store) });
+    } catch (error) {
+      if (['PROJECT_NOT_FOUND', 'MILESTONE_NOT_FOUND'].includes(error.message)) {
+        return sendJson(res, 404, { error: error.message });
+      }
+      return sendJson(res, 500, { error: 'SERVER_ERROR' });
+    }
+  }
+
+  if (pathname === '/api/payments/release' && method === 'POST') {
+    if (!ensureAuthenticated(res, sessionContext, ['homeowner', 'property_manager', 'admin'])) return true;
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const paymentId = Number.parseInt(body.paymentId, 10);
+    if (!Number.isFinite(paymentId)) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    try {
+      const payment = await store.setPaymentStatus(paymentId, 'released', {
+        releasedBy: sessionContext.user.id,
+        releasedAt: new Date().toISOString()
+      });
+      return sendJson(res, 200, { payment: publicPayment(payment, store) });
+    } catch (error) {
+      if (error.message === 'NOT_FOUND') {
+        return sendJson(res, 404, { error: 'NOT_FOUND' });
+      }
+      return sendJson(res, 500, { error: 'SERVER_ERROR' });
+    }
+  }
+
+  if (pathname === '/api/payments' && method === 'GET') {
+    if (!ensureAuthenticated(res, sessionContext, ['homeowner', 'property_manager', 'contractor', 'admin'])) return true;
+    const search = new URL(req.url, `http://${req.headers.host}`).searchParams;
+    const filter = {};
+    if (search.get('status')) filter.status = search.get('status');
+    if (search.get('projectId')) filter.projectId = Number.parseInt(search.get('projectId'), 10);
+    let payments = store.listPayments(filter);
+    if (sessionContext.user.role === 'homeowner' || sessionContext.user.role === 'property_manager') {
+      const myProjects = new Set(
+        store
+          .listProjects({ clientId: sessionContext.user.id })
+          .map((project) => project.id)
+      );
+      payments = payments.filter((payment) => myProjects.has(payment.projectId));
+    } else if (sessionContext.user.role === 'contractor') {
+      const contractor = store.listContractors().find((entry) => entry.userId === sessionContext.user.id);
+      if (!contractor) {
+        payments = [];
+      } else {
+        payments = payments.filter((payment) => {
+          const project = store.findProjectById(payment.projectId);
+          return project?.awardedContractorId === contractor.id;
+        });
+      }
+    }
+    return sendJson(res, 200, { payments: payments.map((payment) => publicPayment(payment, store)) });
+  }
+
+  return false;
+}
+
+async function handleReviewRoutes(req, res, pathname, method, store, sessionContext) {
+  if (pathname === '/api/reviews' && method === 'POST') {
+    if (!ensureAuthenticated(res, sessionContext, ['homeowner', 'property_manager'])) return true;
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const projectId = Number.parseInt(body.projectId, 10);
+    const contractorId = Number.parseInt(body.contractorId, 10);
+    const rating = Number.parseInt(body.rating, 10);
+    if (!Number.isFinite(projectId) || !Number.isFinite(contractorId) || !Number.isFinite(rating) || rating < 1 || rating > 5) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    const project = store.findProjectById(projectId);
+    if (!project || project.clientId !== sessionContext.user.id) {
+      return sendJson(res, 403, { error: 'FORBIDDEN' });
+    }
+    const review = await store.createReview({
+      projectId,
+      contractorId,
+      clientId: sessionContext.user.id,
+      rating,
+      comment: body.comment?.trim() || ''
+    });
+    return sendJson(res, 201, { review: publicReview(review, store) });
+  }
+
+  if (pathname === '/api/reviews' && method === 'GET') {
+    const search = new URL(req.url, `http://${req.headers.host}`).searchParams;
+    const filter = {};
+    if (search.get('contractorId')) filter.contractorId = Number.parseInt(search.get('contractorId'), 10);
+    if (search.get('status')) {
+      filter.status = search.get('status');
+    } else {
+      filter.status = 'published';
+    }
+    const reviews = store.listReviews(filter).map((review) => publicReview(review, store));
+    return sendJson(res, 200, { reviews });
+  }
+
+  if (pathname.startsWith('/api/reviews/') && pathname.endsWith('/status') && method === 'POST') {
+    if (!ensureAuthenticated(res, sessionContext, ['admin'])) return true;
+    const reviewId = Number.parseInt(pathname.split('/')[3], 10);
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const { status } = body;
+    if (!['published', 'hidden'].includes(status)) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    try {
+      const review = await store.setReviewStatus(reviewId, status);
+      return sendJson(res, 200, { review: publicReview(review, store) });
+    } catch (error) {
+      if (error.message === 'NOT_FOUND') {
+        return sendJson(res, 404, { error: 'NOT_FOUND' });
+      }
+      return sendJson(res, 500, { error: 'SERVER_ERROR' });
+    }
+  }
+
+  return false;
+}
+
+async function handleVerificationRoutes(req, res, pathname, method, store, sessionContext) {
+  if (pathname === '/api/verifications' && method === 'GET') {
+    if (!ensureAuthenticated(res, sessionContext, ['admin'])) return true;
+    const search = new URL(req.url, `http://${req.headers.host}`).searchParams;
+    const verifications = store
+      .listVerifications({ status: search.get('status') || undefined })
+      .map((record) => publicVerification(record, store));
+    return sendJson(res, 200, { verifications });
+  }
+
+  if (pathname === '/api/verifications/documents' && method === 'POST') {
+    if (!ensureAuthenticated(res, sessionContext, ['contractor'])) return true;
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const contractor = store.listContractors().find((entry) => entry.userId === sessionContext.user.id);
+    if (!contractor) {
+      return sendJson(res, 404, { error: 'NOT_FOUND' });
+    }
+    const record = await store.addVerificationDocument(contractor.id, {
+      type: body.type || 'document',
+      name: body.name || 'uploaded-file',
+      url: body.url || null
+    });
+    return sendJson(res, 201, { verification: publicVerification(record, store) });
+  }
+
+  if (pathname.startsWith('/api/verifications/') && pathname.endsWith('/status') && method === 'POST') {
+    if (!ensureAuthenticated(res, sessionContext, ['admin'])) return true;
+    const contractorId = Number.parseInt(pathname.split('/')[3], 10);
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const { status, notes } = body;
+    if (!['pending', 'approved', 'declined'].includes(status)) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
+    const contractor = store.data.contractors.find((entry) => entry.id === contractorId);
+    if (!contractor) {
+      return sendJson(res, 404, { error: 'NOT_FOUND' });
+    }
+    const record = await store.updateVerification(contractorId, {
+      status,
+      notes: notes ? [notes] : undefined
+    });
+    const contractorStatus = status === 'approved' ? 'approved' : status === 'declined' ? 'declined' : 'pending';
+    await store.setContractorStatus(contractorId, contractorStatus);
+    return sendJson(res, 200, { verification: publicVerification(record, store) });
+  }
+
+  return false;
+}
+
+async function handleDirectoryRoutes(req, res, pathname, method, store) {
+  if (pathname === '/api/directory/contractors' && method === 'GET') {
+    const search = new URL(req.url, `http://${req.headers.host}`).searchParams;
+    const contractors = store
+      .listContractors({
+        status: search.get('verified') === 'true' ? 'approved' : undefined,
+        trade: search.get('trade') || undefined,
+        province: search.get('province') || undefined,
+        city: search.get('city') || undefined,
+        premium: search.get('premium') === 'true'
+      })
+      .map((contractor) => publicContractor(contractor, store));
+    return sendJson(res, 200, { contractors });
+  }
+  return false;
+}
+
+async function handleChatbotRoutes(req, res, pathname, method) {
+  if (pathname === '/api/chatbot/kee' && method === 'POST') {
+    let body;
+    try {
+      body = await readRequestBody(req);
+    } catch (error) {
+      return sendJson(res, 400, { error: 'INVALID_JSON' });
+    }
+    const intent = (body.intent || '').toLowerCase();
+    const responses = {
+      onboarding:
+        'To get started, create an UpKept account, add your project, and Kee will connect you with verified professionals.',
+      escrow:
+        'Your funds stay in escrow until milestones are approved. Release happens only with your confirmation.',
+      support: 'Our Canadian support team is available 24/7 at support@upkept.ca or through live chat.'
+    };
+    const message =
+      responses[intent] ||
+      'Hi! I am Kee, your UpKept assistant. Ask about finding contractors, escrow protection, or getting support.';
+    const actions = [
+      { label: 'Submit a Project', href: '/submit-project.html' },
+      { label: 'Learn About Escrow', href: '/escrow.html' },
+      { label: 'Apply as Contractor', href: '/apply.html' }
+    ];
+    return sendJson(res, 200, { message, actions });
+  }
+  return false;
+}
+
 export async function createApp() {
   const store = new DataStore(process.env.UPKEPT_DATA_PATH);
   await store.init();
@@ -483,6 +898,16 @@ export async function createApp() {
       if (handledQuotes) return;
       const handledAdmin = await handleAdminRoutes(req, res, pathname, method, store, sessionContext);
       if (handledAdmin) return;
+      const handledPayments = await handlePaymentRoutes(req, res, pathname, method, store, sessionContext);
+      if (handledPayments) return;
+      const handledReviews = await handleReviewRoutes(req, res, pathname, method, store, sessionContext);
+      if (handledReviews) return;
+      const handledVerifications = await handleVerificationRoutes(req, res, pathname, method, store, sessionContext);
+      if (handledVerifications) return;
+      const handledDirectory = await handleDirectoryRoutes(req, res, pathname, method, store);
+      if (handledDirectory) return;
+      const handledChatbot = await handleChatbotRoutes(req, res, pathname, method);
+      if (handledChatbot) return;
       return sendJson(res, 404, { error: 'NOT_FOUND' });
     }
 
