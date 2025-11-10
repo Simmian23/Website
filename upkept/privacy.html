@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | UpKept</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="top-nav">
+        <a class="logo" href="index.html" aria-label="UpKept home">UpKept</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" role="menubar">
+          <a href="about.html" role="menuitem">Who We Are</a>
+          <a href="how-it-works.html" role="menuitem">How It Works</a>
+          <a href="benefits.html" role="menuitem">Why UpKept</a>
+          <a href="client-portal.html" role="menuitem">Client Portal</a>
+          <a href="contractor-portal.html" role="menuitem">Contractor Portal</a>
+          <a href="admin-dashboard.html" role="menuitem">Admin</a>
+          <a class="btn-outline" href="kee.html" role="menuitem">Chat with Kee</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-intro">
+        <div class="container narrow">
+          <h1>Privacy Policy</h1>
+          <p>Effective January 1, 2025</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container narrow">
+          <h2>1. Overview</h2>
+          <p>
+            UpKept protects homeowner and contractor information through encryption, strict access controls, and transparent consent.
+            This policy outlines how we collect, use, and store personal data across our platform.
+          </p>
+          <h2>2. Data We Collect</h2>
+          <ul>
+            <li>Account details such as name, email address, role, and company information.</li>
+            <li>Project data including descriptions, budgets, milestones, and uploaded documents.</li>
+            <li>Verification evidence like licenses, insurance certificates, and reference contact details.</li>
+            <li>Escrow and transaction records required to facilitate milestone-based payments.</li>
+          </ul>
+          <h2>3. How We Use Data</h2>
+          <p>
+            We process data to match projects with contractors, manage escrow transactions, enable messaging, and provide support. We do not sell personal information and only share data with trusted service providers that power payments, background checks, or communication tools.
+          </p>
+          <h2>4. Security</h2>
+          <p>
+            All sensitive data is encrypted in transit and at rest. Access is role-based and audited. Payment details are handled by PCI-compliant providers. We notify impacted users of any security incidents in accordance with Canadian privacy regulations.
+          </p>
+          <h2>5. Your Choices</h2>
+          <p>
+            Users can request data exports or deletion at any time by emailing privacy@upkept.ca. Contractors may update verification documentation through the portal, and homeowners can archive historical projects for their records.
+          </p>
+          <h2>6. Contact</h2>
+          <p>Reach our privacy team at privacy@upkept.ca for questions about this policy or your data rights.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <h3>UpKept</h3>
+          <p>Real People. Real Projects. Real Protection.</p>
+          <p class="copyright">&copy; 2025 UpKept Inc.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.upkept.ca/careers">Careers</a></li>
+            <li><a href="privacy.html" aria-current="page">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:hello@upkept.ca">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/upkept">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/upkept">Instagram</a></li>
+            <li><a href="https://www.facebook.com/upkept">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="chat-launch" aria-label="Open Kee chatbot">Chat with Kee</button>
+    </footer>
+
+    <div class="chatbot" data-chatbot>
+      <button class="chatbot-close" aria-label="Close Kee chat">×</button>
+      <div class="chatbot-header">Kee • UpKept Assistant</div>
+      <div class="chatbot-body">
+        <p class="chatbot-greeting">Hi 👋 I’m Kee, your UpKept assistant. How can I help today?</p>
+        <ul class="chatbot-options" role="list">
+          <li data-link="client-portal.html">Find a Contractor</li>
+          <li data-link="submit-project.html">Submit a Project</li>
+          <li data-link="project-tracker.html">Track My Project</li>
+          <li data-link="apply.html">Apply as Contractor</li>
+          <li data-link="mailto:support@upkept.ca">Talk to Support</li>
+        </ul>
+        <div class="chatbot-secondary">
+          <p>Select an option to jump into the right workspace or type a question below.</p>
+        </div>
+      </div>
+      <form class="chatbot-form" action="kee.html" aria-label="Send a message to Kee">
+        <label class="visually-hidden" for="chatbot-input">Message Kee</label>
+        <input id="chatbot-input" type="text" placeholder="Ask Kee for guidance" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

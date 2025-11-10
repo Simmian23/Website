@@ -1,36 +1,60 @@
 # Upkept
 
-This repository contains the initial skeleton for the **Upkept** website. It’s a simple, static website intended as a starting point for the platform.  
+This repository now contains a working prototype of the **UpKept** marketplace, including the marketing site, portal dashboards,
+and an upgraded backend that simulates escrow-backed payments, contractor verification, reviews, and analytics without any third-party dependencies.
 
 ## Project structure
 
 ```
 upkept/
-├── index.html            # Landing page with overview and CTA
-├── how-it-works.html     # Explains the process: post project → vetting → quotes → escrow → completion
-├── post-project.html     # Intake form (placeholder) for homeowners to post a project
-├── apply.html            # Application page for contractors
-├── pricing.html          # Outline of future pricing model
-└── style.css             # Basic styling shared across pages
+├── index.html               # Landing page with overview and CTA
+├── client-portal.html       # Client dashboard fed by the API
+├── contractor-portal.html   # Contractor workspace with live projects/quotes
+├── admin-dashboard.html     # Admin oversight with live metrics
+├── login.html               # Combined registration/sign-in page
+├── style.css                # Shared design system
+└── script.js                # Front-end logic for API calls & dashboards
+
+src/
+├── data-store.js            # JSON-backed data layer with escrow, verification, review, and payment helpers
+├── web-app.js               # HTTP server, routing, and chatbot endpoints
+└── server.js                # Entrypoint that boots the service
+
+tests/
+└── api.test.js              # Node test that exercises registration, escrow, verification, and chatbot flows
 ```
 
 ## Running locally
 
-Since the site is fully static, you don’t need any dependencies. You can simply open the HTML files in your browser or serve them via a simple HTTP server. For example:
+1. Start the API/website server:
 
 ```bash
-# from the repository root
-python3 -m http.server --directory upkept 8000
-# Then visit http://localhost:8000 in your browser.
+npm start
+```
+
+The command boots a minimal Node server (no external packages required) that serves both the static assets and JSON API at <http://localhost:3000>.
+
+2. Visit the experience at `http://localhost:3000/upkept/index.html` or jump straight into `/upkept/client-portal.html` and `/upkept/contractor-portal.html`.
+
+## Publishing the static site
+
+If you want to host the marketing experience as a static website (for example on GitHub Pages or Netlify) without the optional Node
+server, point your host to the repository root. The new top-level `index.html` automatically redirects visitors to
+`upkept/index.html`, so all existing pages, styles, and assets load with their original structure intact. On hosts that support it,
+you can also serve the `upkept/` directory directly for a pure static deployment.
+
+## Tests
+
+The repository uses the built-in Node test runner to confirm the primary marketplace flows—registration, contractor verification,
+quote approvals, escrow funding/release, reviews, and Kee chatbot prompts—work end-to-end.
+
+```bash
+npm test
 ```
 
 ## Next steps
 
-This skeleton is only a starting point. Future iterations might:
-
-- Replace the static site with a full-featured framework like Next.js or React once npm access is available.
-- Hook up the **Post a Project** form to a backend service and database.
-- Add authentication, payments via Stripe, and a dashboard for homeowners and contractors.
-- Expand the style guide and include a component library or CSS framework such as Tailwind.
-
-Feel free to fork this repository and adapt it to your needs!
+- Swap the JSON data store for a production database (PostgreSQL or MongoDB) with migrations and backups.
+- Integrate real payment processors (Stripe Connect, PayPal) in place of the simulated escrow ledger.
+- Connect Kee to an AI assistant API and wire real-time messaging between clients and contractors.
+- Extend the admin dashboard with dispute workflows, CMS controls, and exportable analytics.
