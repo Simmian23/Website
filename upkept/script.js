@@ -8,6 +8,7 @@ const chatbotForm = document.querySelector('.chatbot-form');
 const chatbotInput = document.querySelector('#chatbot-input');
 
 if (navToggle && navLinks) {
+if (navToggle) {
   navToggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('is-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
@@ -33,6 +34,11 @@ if (chatbotOptions.length) {
       const destination = option.getAttribute('data-link');
       if (destination) {
         window.location.href = destination;
+        if (destination.startsWith('mailto:')) {
+          window.location.href = destination;
+        } else {
+          window.location.href = destination;
+        }
       }
     });
   });
@@ -48,11 +54,13 @@ if (chatbotForm) {
     responseBox.className = 'chatbot-secondary';
     responseBox.innerHTML =
       '<strong>Kee:</strong> Thanks! I’ve shared your request with our support team. You can also explore the <a href="client-portal.html">Client Portal</a> or <a href="contractor-portal.html">Contractor Portal</a> for next steps.';
+    responseBox.innerHTML = `<strong>Kee:</strong> Thanks! I’ve shared your request with our support team. You can also explore the <a href="client-portal.html">Client Portal</a> or <a href="contractor-portal.html">Contractor Portal</a> for next steps.`;
     chatbotForm.parentElement.insertBefore(responseBox, chatbotForm);
     chatbotInput.value = '';
   });
 }
 
+// Close chatbot when clicking outside
 if (chatbot) {
   document.addEventListener('click', (event) => {
     if (!chatbot.contains(event.target) && event.target !== chatLaunch) {

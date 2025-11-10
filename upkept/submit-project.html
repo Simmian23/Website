@@ -93,6 +93,34 @@
                 <input id="timeline" name="timeline" type="text" placeholder="July 2025" />
               </div>
             </div>
+          <form class="card" action="project-submitted.html" method="get">
+            <div class="grid-two">
+              <div>
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="Jordan Lee" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="jordan@example.ca" required />
+              </div>
+            </div>
+            <label for="location">City &amp; Province</label>
+            <input id="location" name="location" type="text" placeholder="Calgary, AB" />
+            <label for="trade">Primary Trade Needed</label>
+            <select id="trade" name="trade">
+              <option>General Contracting</option>
+              <option>Electrical</option>
+              <option>Plumbing</option>
+              <option>HVAC</option>
+              <option>Landscaping</option>
+              <option>Commercial Build</option>
+            </select>
+            <label for="description">Project Description</label>
+            <textarea id="description" name="description" placeholder="Tell us about timelines, budget, and must-haves" required></textarea>
+            <label for="budget">Estimated Budget</label>
+            <input id="budget" name="budget" type="text" placeholder="$25,000" />
+            <label for="timeline">Preferred Start Date</label>
+            <input id="timeline" name="timeline" type="month" />
             <button class="btn" type="submit">Submit Project</button>
           </form>
         </div>

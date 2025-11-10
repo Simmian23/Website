@@ -53,6 +53,7 @@ test('end-to-end marketplace flow', async () => {
         province: 'BC',
         tradeType: 'Carpentry',
         milestones: [{ title: 'Deposit', amount: 9500 }]
+        tradeType: 'Carpentry'
       }
     }, clientJar);
     assert.equal(projectResponse.status, 201);
@@ -125,6 +126,10 @@ test('end-to-end marketplace flow', async () => {
       adminJar
     );
     assert.equal(approveVerification.status, 200);
+        yearsInBusiness: 7
+      }
+    }, contractorJar);
+    assert.equal(profileResponse.status, 201);
 
     const quoteResponse = await fetchWithCookies(baseUrl(port, '/api/quotes'), {
       method: 'POST',

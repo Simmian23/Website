@@ -17,6 +17,7 @@ const defaultData = {
     messages: 0,
     milestones: 0,
     blogPosts: 0
+    reviews: 0
   },
   users: [],
   contractors: [],
@@ -28,6 +29,7 @@ const defaultData = {
   disputes: [],
   messages: [],
   blogPosts: []
+  reviews: []
 };
 
 export class DataStore {
@@ -136,6 +138,7 @@ export class DataStore {
     yearsInBusiness,
     isPremium = false
   }) {
+  async createContractorProfile({ userId, companyName, trades, province, city, summary, yearsInBusiness }) {
     const existing = this.data.contractors.find((contractor) => contractor.userId === userId);
     const timestamp = this.#timestamp();
     if (existing) {
@@ -185,6 +188,7 @@ export class DataStore {
         if (filter.premium === true && !contractor.isPremium) return false;
         return true;
       })
+      .filter((contractor) => (status ? contractor.status === status : true))
       .map((contractor) => {
         const user = this.findUserById(contractor.userId);
         return {
@@ -221,6 +225,7 @@ export class DataStore {
   }
 
   async createProject({ clientId, title, scope, budget, timeline, city, province, tradeType, milestones = [] }) {
+  async createProject({ clientId, title, scope, budget, timeline, city, province, tradeType }) {
     const id = this.#nextId('projects');
     const timestamp = this.#timestamp();
     const project = {
@@ -472,6 +477,10 @@ export class DataStore {
       status: 'published',
       createdAt: timestamp
     };
+  async createReview({ projectId, contractorId, clientId, rating, comment }) {
+    const id = this.#nextId('reviews');
+    const timestamp = this.#timestamp();
+    const review = { id, projectId, contractorId, clientId, rating, comment, createdAt: timestamp };
     this.data.reviews.push(review);
     await this.#persist();
     return review;
@@ -520,6 +529,7 @@ export class DataStore {
         quotes: this.data.quotes.length,
         reviews: this.data.reviews.length,
         payments: this.data.payments.length
+        quotes: this.data.quotes.length
       },
       metrics: {
         projectsInEscrow,
@@ -531,6 +541,7 @@ export class DataStore {
         releasedVolume,
         commission,
         escrowFees
+        approvedContractors
       }
     };
   }

@@ -74,6 +74,10 @@ function publicContractor(contractor, store) {
     contactEmail: user?.email || null,
     reviewCount: reviews.length,
     averageRating
+  return {
+    ...base,
+    contactName: user?.name || null,
+    contactEmail: user?.email || null
   };
 }
 
@@ -297,6 +301,10 @@ async function handleProjectsRoutes(req, res, pathname, method, store, sessionCo
           }))
           .slice(0, 10)
       : [];
+    const { title, scope, budget, timeline, city, province, tradeType } = body;
+    if (!title || !scope) {
+      return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
+    }
     const project = await store.createProject({
       clientId: sessionContext.user.id,
       title: title.trim(),
@@ -307,6 +315,7 @@ async function handleProjectsRoutes(req, res, pathname, method, store, sessionCo
       province: province?.trim() || '',
       tradeType: tradeType?.trim() || '',
       milestones: normalizedMilestones
+      tradeType: tradeType?.trim() || ''
     });
     return sendJson(res, 201, { project: publicProject(project, store) });
   }
@@ -327,6 +336,7 @@ async function handleProjectsRoutes(req, res, pathname, method, store, sessionCo
     const projects = store
       .listProjects({ status: 'posted', ...filters })
       .map((project) => publicProject(project, store));
+    const projects = store.listProjects({ status: 'posted' }).map((project) => publicProject(project, store));
     return sendJson(res, 200, { projects });
   }
 
@@ -426,6 +436,8 @@ async function handleContractorRoutes(req, res, pathname, method, store, session
         premium: search.get('premium') === 'true'
       })
       .map((contractor) => publicContractor(contractor, store));
+    const status = new URL(req.url, `http://${req.headers.host}`).searchParams.get('status') || undefined;
+    const contractors = store.listContractors({ status }).map((contractor) => publicContractor(contractor, store));
     return sendJson(res, 200, { contractors });
   }
 
@@ -438,6 +450,7 @@ async function handleContractorRoutes(req, res, pathname, method, store, session
       return sendJson(res, 400, { error: 'INVALID_JSON' });
     }
     const { companyName, trades, province, city, summary, yearsInBusiness, isPremium } = body;
+    const { companyName, trades, province, city, summary, yearsInBusiness } = body;
     if (!companyName || !trades) {
       return sendJson(res, 400, { error: 'VALIDATION_ERROR' });
     }
@@ -450,6 +463,7 @@ async function handleContractorRoutes(req, res, pathname, method, store, session
       summary: summary?.trim() || '',
       yearsInBusiness: Number.parseInt(yearsInBusiness, 10) || 0,
       isPremium: Boolean(isPremium)
+      yearsInBusiness: Number.parseInt(yearsInBusiness, 10) || 0
     });
     return sendJson(res, 201, { contractor: publicContractor(contractor, store) });
   }

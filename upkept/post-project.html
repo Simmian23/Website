@@ -80,6 +80,15 @@
             </div>
             <label for="province">Province</label>
             <input id="province" name="province" type="text" placeholder="British Columbia" />
+          <form class="card" action="project-submitted.html" method="get">
+            <label for="project-title">Project Title</label>
+            <input id="project-title" name="project-title" type="text" placeholder="Kitchen renovation" required />
+            <label for="scope">Scope &amp; Goals</label>
+            <textarea id="scope" name="scope" placeholder="Tell us what you want to accomplish" required></textarea>
+            <label for="budget">Estimated Budget</label>
+            <input id="budget" name="budget" type="text" placeholder="$40,000" />
+            <label for="timeline">Preferred Timeline</label>
+            <input id="timeline" name="timeline" type="month" />
             <button class="btn" type="submit">Submit Project</button>
           </form>
         </div>
