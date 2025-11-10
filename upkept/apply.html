@@ -43,6 +43,35 @@
       </section>
       <section class="section">
         <div class="container">
+          <form
+            class="card"
+            data-api-endpoint="/api/contractors/apply"
+            data-success-redirect="contractor-application-success.html"
+            data-success-message="Your application has been submitted. Our verification team will review it shortly."
+            data-requires-role="contractor"
+          >
+            <p class="role-alert" data-role-locked hidden>
+              Sign in with a contractor account to submit your application.
+            </p>
+            <p class="form-feedback" data-form-feedback hidden></p>
+            <div class="grid-two">
+              <div>
+                <label for="companyName">Company Name</label>
+                <input id="companyName" name="companyName" type="text" placeholder="Acme Renovations" required />
+              </div>
+              <div>
+                <label for="years">Years in Business</label>
+                <input id="years" name="yearsInBusiness" type="number" min="0" placeholder="10" />
+              </div>
+            </div>
+            <label for="trade">Trades Offered</label>
+            <input id="trade" name="trades" type="text" placeholder="Plumbing, Electrical, Roofing" required />
+            <label for="area">Service Area</label>
+            <input id="area" name="city" type="text" placeholder="Kelowna and surrounding" />
+            <label for="province">Province</label>
+            <input id="province" name="province" type="text" placeholder="British Columbia" />
+            <label for="summary">Company Summary</label>
+            <textarea id="summary" name="summary" placeholder="Share your specialties and certifications"></textarea>
           <form class="card" action="contractor-application-success.html" method="get">
             <div class="grid-two">
               <div>

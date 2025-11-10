@@ -43,6 +43,27 @@
       </section>
       <section class="section">
         <div class="container">
+          <form
+            class="card"
+            data-api-endpoint="/api/quotes"
+            data-success-message="Quote submitted to the client."
+            data-success-redirect="contractor-portal.html"
+            data-requires-role="contractor"
+          >
+            <p class="role-alert" data-role-locked hidden>Sign in as a verified contractor to submit quotes.</p>
+            <p class="form-feedback" data-form-feedback hidden></p>
+            <input type="hidden" name="projectId" data-project-id-input />
+            <label for="project-name">Project Name</label>
+            <input id="project-name" name="projectName" type="text" placeholder="Deck rebuild in Kelowna" />
+            <label for="amount">Quote Amount</label>
+            <input id="amount" name="amount" type="text" placeholder="$17,500" required />
+            <label for="milestones">Milestones &amp; Inclusions</label>
+            <textarea
+              id="milestones"
+              name="message"
+              placeholder="Example: Demolition and disposal, framing, finishing, inspections."
+              required
+            ></textarea>
           <form class="card" action="quote-accept.html" method="get">
             <label for="project-name">Project Name</label>
             <input id="project-name" name="project-name" type="text" required />

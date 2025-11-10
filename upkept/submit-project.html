@@ -43,6 +43,56 @@
       </section>
       <section class="section">
         <div class="container">
+          <form
+            class="card"
+            data-api-endpoint="/api/projects"
+            data-success-redirect="project-submitted.html"
+            data-success-message="Project submitted. Our concierge team will follow up within one business day."
+            data-requires-role="homeowner,property_manager"
+          >
+            <p class="role-alert" data-role-locked hidden>
+              Sign in as a homeowner or property manager to use the advanced intake.
+            </p>
+            <p class="form-feedback" data-form-feedback hidden></p>
+            <div class="grid-two">
+              <div>
+                <label for="title">Project Title</label>
+                <input id="title" name="title" type="text" placeholder="Whole home renovation" required />
+              </div>
+              <div>
+                <label for="tradeType">Primary Trade Needed</label>
+                <select id="tradeType" name="tradeType">
+                  <option value="General Contracting">General Contracting</option>
+                  <option value="Electrical">Electrical</option>
+                  <option value="Plumbing">Plumbing</option>
+                  <option value="HVAC">HVAC</option>
+                  <option value="Landscaping">Landscaping</option>
+                  <option value="Commercial Build">Commercial Build</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid-two">
+              <div>
+                <label for="province">Province</label>
+                <input id="province" name="province" type="text" placeholder="Alberta" />
+              </div>
+              <div>
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" placeholder="Calgary" />
+              </div>
+            </div>
+            <label for="scope">Project Description</label>
+            <textarea id="scope" name="scope" placeholder="Tell us about timelines, budget, and must-haves" required></textarea>
+            <div class="grid-two">
+              <div>
+                <label for="budget">Estimated Budget</label>
+                <input id="budget" name="budget" type="text" placeholder="$25,000" />
+              </div>
+              <div>
+                <label for="timeline">Preferred Start Date</label>
+                <input id="timeline" name="timeline" type="text" placeholder="July 2025" />
+              </div>
+            </div>
           <form class="card" action="project-submitted.html" method="get">
             <div class="grid-two">
               <div>

@@ -58,6 +58,18 @@
             <p>Complete your profile so our verification team can review your credentials and activate your badge.</p>
           </header>
           <div class="grid-two">
+            <form
+              class="card"
+              data-api-endpoint="/api/contractors/apply"
+              data-success-redirect="contractor-application-success.html"
+              data-success-message="Application submitted. Verification will follow within two business days."
+              data-requires-role="contractor"
+            >
+              <p class="role-alert" data-role-locked hidden>Sign in with a contractor account to manage your profile.</p>
+              <p class="form-feedback" data-form-feedback hidden></p>
+              <h3>Step 1 — Profile Setup</h3>
+              <label for="company-name">Company Name</label>
+              <input id="company-name" name="companyName" type="text" placeholder="Acme Contracting Inc." required />
             <form class="card" action="contractor-application-success.html" method="get">
               <h3>Step 1 — Profile Setup</h3>
               <label for="company-name">Company Name</label>
@@ -95,12 +107,14 @@
               <textarea id="summary" name="summary" placeholder="Share your specialties, certifications, and differentiators."></textarea>
 
               <label for="years">Years in Business</label>
+              <input id="years" name="yearsInBusiness" type="number" min="0" placeholder="12" />
               <input id="years" name="years" type="number" min="0" placeholder="12" />
 
               <button class="btn" type="submit">Submit Application</button>
             </form>
             <div class="card">
               <h3>Step 2 — Verification Journey</h3>
+              <p class="muted">Current status: <strong data-contractor-status>Not submitted</strong></p>
               <ul class="list-clean">
                 <li>
                   <div>
@@ -142,6 +156,38 @@
             <p>Everything you need to manage quotes, milestones, and communication from day one.</p>
           </header>
           <div class="grid-two">
+            <div class="dashboard-card" data-requires-role="contractor">
+              <h3>1. Available Projects</h3>
+              <p>Filter open opportunities by province, city, and trade.</p>
+              <p class="role-alert" data-role-locked hidden>Sign in with a contractor account to view projects.</p>
+              <ul class="list-clean" data-contractor-available></ul>
+            </div>
+            <div class="dashboard-card" data-requires-role="contractor">
+              <h3>2. Quote Requests</h3>
+              <p>Receive AI and admin matched projects ready for pricing.</p>
+              <p class="role-alert" data-role-locked hidden>Sign in with a contractor account to manage quote requests.</p>
+              <ul class="list-clean" data-contractor-requests></ul>
+            </div>
+          </div>
+          <div class="grid-two" style="margin-top: 2rem;">
+            <div class="dashboard-card" id="active-quotes" data-requires-role="contractor">
+              <h3>3. Active Quotes</h3>
+              <p>Track each quote until the client approves or declines.</p>
+              <p class="role-alert" data-role-locked hidden>Sign in to review your active quotes.</p>
+              <ul class="list-clean" data-contractor-quotes></ul>
+            </div>
+            <div class="dashboard-card" id="active-projects" data-requires-role="contractor">
+              <h3>4. Active Projects</h3>
+              <p>See payment milestones, messaging, and schedule in one view.</p>
+              <p class="role-alert" data-role-locked hidden>Active projects appear once your quotes are approved.</p>
+              <ul class="list-clean" data-contractor-active-projects></ul>
+            </div>
+          </div>
+          <div class="dashboard-card" style="margin-top: 2rem;" data-requires-role="contractor">
+            <h3>5. Finished Projects</h3>
+            <p>Archive completed work, export invoices, and showcase reviews.</p>
+            <p class="role-alert" data-role-locked hidden>Completed projects will be saved to your archive.</p>
+            <ul class="list-clean" data-contractor-completed></ul>
             <div class="dashboard-card">
               <h3>1. Available Projects</h3>
               <p>Filter open opportunities by province, city, and trade.</p>

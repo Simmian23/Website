@@ -43,6 +43,43 @@
       </section>
       <section class="section">
         <div class="container">
+          <form
+            class="card"
+            data-api-endpoint="/api/projects"
+            data-success-redirect="project-submitted.html"
+            data-success-message="Your project has been submitted for matching."
+            data-requires-role="homeowner,property_manager"
+          >
+            <p class="role-alert" data-role-locked hidden>
+              Sign in as a homeowner or property manager to submit a project.
+            </p>
+            <p class="form-feedback" data-form-feedback hidden></p>
+            <label for="title">Project Title</label>
+            <input id="title" name="title" type="text" placeholder="Kitchen renovation" required />
+            <label for="scope">Scope &amp; Goals</label>
+            <textarea id="scope" name="scope" placeholder="Tell us what you want to accomplish" required></textarea>
+            <div class="grid-two">
+              <div>
+                <label for="tradeType">Trade Type</label>
+                <input id="tradeType" name="tradeType" type="text" placeholder="General Contracting" />
+              </div>
+              <div>
+                <label for="budget">Estimated Budget</label>
+                <input id="budget" name="budget" type="text" placeholder="$40,000" />
+              </div>
+            </div>
+            <div class="grid-two">
+              <div>
+                <label for="timeline">Preferred Timeline</label>
+                <input id="timeline" name="timeline" type="text" placeholder="Spring 2025" />
+              </div>
+              <div>
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" placeholder="Kelowna" />
+              </div>
+            </div>
+            <label for="province">Province</label>
+            <input id="province" name="province" type="text" placeholder="British Columbia" />
           <form class="card" action="project-submitted.html" method="get">
             <label for="project-title">Project Title</label>
             <input id="project-title" name="project-title" type="text" placeholder="Kitchen renovation" required />

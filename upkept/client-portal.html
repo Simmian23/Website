@@ -57,6 +57,25 @@
             <h2>Step 1 — Client Profile Setup</h2>
             <p>Tell us who you are so we can tailor recommendations and support.</p>
           </header>
+          <div class="card profile-card" data-requires-role="homeowner,property_manager">
+            <p class="role-alert" data-role-locked hidden>Sign in as a client to view your saved profile.</p>
+            <dl class="profile-details">
+              <div>
+                <dt>Name</dt>
+                <dd data-session-name>Guest</dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd data-session-email>Sign in to view</dd>
+              </div>
+              <div>
+                <dt>Role</dt>
+                <dd data-session-role>Not signed in</dd>
+              </div>
+            </dl>
+            <p class="muted">Need to update your contact details? Visit the authentication portal to manage your account.</p>
+            <a class="btn-secondary" href="login.html">Open Account Settings</a>
+          </div>
           <form class="card" action="client-profile-saved.html" method="get">
             <div class="grid-two">
               <div>
@@ -96,6 +115,47 @@
             <p>Upload photos, outline scope, and choose the trades you need.</p>
           </header>
           <div class="grid-two">
+            <form
+              class="card"
+              data-api-endpoint="/api/projects"
+              data-success-redirect="project-submitted.html"
+              data-success-message="Project submitted successfully. Matching will begin within 24 hours."
+              data-requires-role="homeowner,property_manager"
+            >
+              <p class="role-alert" data-role-locked hidden>Sign in as a client to submit a project.</p>
+              <p class="form-feedback" data-form-feedback hidden></p>
+              <label for="title">Project Title</label>
+              <input id="title" name="title" type="text" placeholder="Kitchen renovation" required />
+              <label for="tradeType">Trade Type</label>
+              <select id="tradeType" name="tradeType">
+                <option value="General Contracting">General Contracting</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Landscaping">Landscaping</option>
+                <option value="Commercial Build">Commercial Build</option>
+              </select>
+              <div class="grid-two">
+                <div>
+                  <label for="budget">Estimated Budget</label>
+                  <input id="budget" name="budget" type="text" placeholder="$25,000" />
+                </div>
+                <div>
+                  <label for="timeline">Preferred Timeline</label>
+                  <input id="timeline" name="timeline" type="text" placeholder="May 2025" />
+                </div>
+              </div>
+              <div class="grid-two">
+                <div>
+                  <label for="province">Province</label>
+                  <input id="province" name="province" type="text" placeholder="British Columbia" />
+                </div>
+                <div>
+                  <label for="city">City</label>
+                  <input id="city" name="city" type="text" placeholder="Kelowna" />
+                </div>
+              </div>
+              <label for="scope">Project Description</label>
+              <textarea id="scope" name="scope" placeholder="Share goals, existing conditions, and must-haves." required></textarea>
             <form class="card" action="project-submitted.html" method="get">
               <label for="project-title">Project Title</label>
               <input id="project-title" name="project-title" type="text" placeholder="Kitchen renovation" />
@@ -126,6 +186,7 @@
             <div class="card" id="recommended-contractors">
               <h3>2. Recommended Contractors</h3>
               <p>UpKept’s smart matching engine delivers personalized contractor suggestions based on your project data.</p>
+              <ul class="list-clean" data-client-recommendations></ul>
               <ul class="list-clean">
                 <li>
                   <div>
@@ -147,6 +208,16 @@
         </div>
       </section>
 
+      <section class="section" aria-labelledby="submitted-projects-heading">
+        <div class="container">
+          <div class="dashboard-card">
+            <h2 id="submitted-projects-heading">Your Submitted Projects</h2>
+            <p>Keep an eye on projects awaiting quotes and approvals.</p>
+            <ul class="list-clean" data-client-projects></ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="contact-contractors">
         <div class="container">
           <div class="grid-two">
@@ -158,6 +229,7 @@
             <div class="dashboard-card" id="project-quotes">
               <h3>4. Project Quotes</h3>
               <p>Compare quotes side by side with transparent scopes and timelines.</p>
+              <ul class="list-clean" data-client-quotes></ul>
               <ul class="list-clean">
                 <li>
                   <span>Roof replacement — $12,400</span>
@@ -178,6 +250,7 @@
             <div class="dashboard-card">
               <h3>5. Active Projects</h3>
               <p>Track progress with milestone-based escrow releases and messaging threads.</p>
+              <ul class="list-clean" data-client-active></ul>
               <ul class="list-clean">
                 <li>
                   <div>
@@ -191,6 +264,7 @@
             <div class="dashboard-card" id="finished-projects">
               <h3>6. Finished Projects</h3>
               <p>Review contractors, download invoices, and store documentation safely.</p>
+              <ul class="list-clean" data-client-completed></ul>
               <ul class="list-clean">
                 <li>
                   <span>Edmonton siding upgrade</span>
